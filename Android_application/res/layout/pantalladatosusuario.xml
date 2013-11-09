@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/tvNombre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Datos Jugador"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <EditText
+        android:id="@+id/etNombreUsuario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:ems="10"
+        android:hint="  Ingrese su nombre"
+        android:inputType="textPersonName" >
+
+        <requestFocus />
+    </EditText>
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Escoja el nivel de dificultad"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <RelativeLayout
+        android:layout_width="472dp"
+        android:layout_height="39dp"
+        android:orientation="horizontal" >
+
+        <RadioButton
+            android:id="@+id/rbFacil"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="55dp"
+            android:text=" Fácil " />
+
+        <RadioButton
+            android:id="@+id/rbmedio"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"         
+            android:layout_marginLeft="200dp"
+            android:text=" Medio " />
+
+        <RadioButton
+            android:id="@+id/rbdificil"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="350dp"
+            android:text="Dificil" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.63" >
+
+        <Button
+            android:id="@+id/btjugar"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+             android:layout_marginLeft="120dp"
+            android:text="Jugar" />
+
+        <Button
+            android:id="@+id/btvolver"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+             android:layout_marginLeft="100dp"
+            android:text="Volver" />
+    </LinearLayout>
+
+</LinearLayout>
