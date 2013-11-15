@@ -44,6 +44,7 @@ public class MainActivity extends Activity implements OnClickListener
 		case R.id.btstart:
 			Intent llama_pantalla_datos=new Intent("com.example.android_application.Pantalladatosusuarios");
 			startActivity(llama_pantalla_datos);
+			break;
 		}
 		
 	}
