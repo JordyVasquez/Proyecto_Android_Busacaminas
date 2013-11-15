@@ -32,6 +32,16 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+           
+        <activity
+            android:name="com.example.android_application.Pantalla_facil"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="com.example.android_application.Pantalla_facil" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
         
     </application>
 

@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center_horizontal"
     android:orientation="vertical" >
 
     <TextView
@@ -33,52 +34,65 @@
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <RelativeLayout
-        android:layout_width="472dp"
-        android:layout_height="39dp"
+        android:layout_width="match_parent"
+        android:layout_height="241dp"
         android:orientation="horizontal" >
 
-        <RadioButton
-            android:id="@+id/rbFacil"
-            android:layout_width="fill_parent"
+        <RadioGroup
+            android:id="@+id/radioGroup1"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="55dp"
-            android:text=" Fácil " />
+            android:layout_centerVertical="true"
+            android:orientation="vertical" >
+
+        </RadioGroup>
 
         <RadioButton
-            android:id="@+id/rbmedio"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"         
-            android:layout_marginLeft="200dp"
-            android:text=" Medio " />
-
-        <RadioButton
-            android:id="@+id/rbdificil"
-            android:layout_width="fill_parent"
+            android:id="@+id/rddificil"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="350dp"
+            android:layout_alignLeft="@+id/rdfacil"
+            android:layout_below="@+id/rdfacil"
+            android:layout_marginTop="106dp"
             android:text="Dificil" />
+
+        <RadioButton
+            android:id="@+id/rdmedio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/rddificil"
+            android:layout_below="@+id/rdfacil"
+            android:layout_marginTop="36dp"
+            android:text="Medio" />
+
+        <RadioButton
+            android:id="@+id/rdfacil"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:text="Facil" />
 
     </RelativeLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.63" >
+        android:layout_height="112dp" >
 
         <Button
-            android:id="@+id/btjugar"
+            android:id="@+id/Jugar"
             style="?android:attr/buttonStyleSmall"
-            android:layout_width="80dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-             android:layout_marginLeft="120dp"
+            android:layout_weight="1"
             android:text="Jugar" />
 
         <Button
-            android:id="@+id/btvolver"
+            android:id="@+id/volver"
             style="?android:attr/buttonStyleSmall"
-            android:layout_width="80dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-             android:layout_marginLeft="100dp"
+            android:layout_weight="1"
             android:text="Volver" />
     </LinearLayout>
 
