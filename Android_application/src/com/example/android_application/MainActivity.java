@@ -18,7 +18,7 @@ public class MainActivity extends Activity implements OnClickListener
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         
-        btStart=(Button)findViewById(R.id.btstart);
+        btStart=(Button)findViewById(R.id.btStart);
         btInstrucciones=(Button)findViewById(R.id.btInstrucciones);
         btRecord=(Button)findViewById(R.id.btRecord);
         btExit=(Button)findViewById(R.id.btExit);
@@ -41,7 +41,7 @@ public class MainActivity extends Activity implements OnClickListener
 		// TODO Auto-generated method stub
 		switch(v.getId())
 		{
-		case R.id.btstart:
+		case R.id.btStart:
 			Intent llama_pantalla_datos=new Intent("com.example.android_application.Pantalladatosusuarios");
 			startActivity(llama_pantalla_datos);
 			break;

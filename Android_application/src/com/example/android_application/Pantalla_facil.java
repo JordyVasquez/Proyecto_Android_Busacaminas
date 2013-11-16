@@ -4,6 +4,8 @@ import java.util.LinkedList;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Typeface;
@@ -79,7 +81,7 @@ public class Pantalla_facil extends Activity implements OnTouchListener {
                                                 
                                                 if (casillas[f][c].contenido == 9) {
                                                         Destaparbombas(cor_Bom);
-                                                        Toast.makeText(this, "Booooooooommmmmmmmmmmm",
+                                                        Toast.makeText(this, "LOSER........PERDISTES",
                                                                         Toast.LENGTH_LONG).show();
                                                         activo = false;
                                                 } else if (casillas[f][c].contenido == 0)
@@ -128,7 +130,11 @@ public class Pantalla_facil extends Activity implements OnTouchListener {
                 }
 
                 protected void onDraw(Canvas canvas) {
-                        canvas.drawRGB(20, 0, 0);
+                	canvas.drawRGB(20, 0, 0);
+        			Bitmap bmp = BitmapFactory.decodeResource(getResources(),R.drawable.ficha);
+        			Bitmap bmp0 = BitmapFactory.decodeResource(getResources(),R.drawable.ficha0);
+        			Bitmap bmpmin = BitmapFactory.decodeResource(getResources(),R.drawable.fichamina);
+        			
                         int ancho = 0;
                         if (canvas.getWidth() < canvas.getHeight())
                                 ancho = tabla.getWidth();
@@ -142,25 +148,17 @@ public class Pantalla_facil extends Activity implements OnTouchListener {
                         paint2.setTypeface(Typeface.DEFAULT_BOLD);
                         
                         
-                        Paint paintlinea1 = new Paint();
-                        paintlinea1.setARGB(255, 255, 255, 255);
                         Coordenada pintarnume;
                         int filaact = 0;
                         for (int f = 0; f < 8; f++) {
                                 for (int c = 0; c <8; c++) {
                                         casillas[f][c].fijarxy(c * anchocua, filaact, anchocua);
                                         if (casillas[f][c].destapado == false)
-                                                paint.setARGB(153, 204, 204, 204);
+                                        	canvas.drawBitmap(bmp0,c * anchocua, filaact, null);
                                         else
-                                                paint.setARGB(255, 153, 153, 153);
-                                        canvas.drawRect(c * anchocua, filaact, c * anchocua
-                                                        + anchocua - 2, filaact + anchocua - 2, paint);
-                                        // linea blanca
-                                        canvas.drawLine(c * anchocua, filaact, c * anchocua
-                                                        + anchocua, filaact, paintlinea1);
-                                        canvas.drawLine(c * anchocua + anchocua - 1, filaact, c
-                                                        * anchocua + anchocua - 1, filaact + anchocua,
-                                                        paintlinea1);
+                                        	canvas.drawBitmap(bmp,c * anchocua, filaact, null);
+                                       
+                                        
                                         pintarnume=new Coordenada(f, c);
                                         if (casillas[f][c].contenido >= 1
                                                         && casillas[f][c].contenido <= 8
@@ -173,11 +171,8 @@ public class Pantalla_facil extends Activity implements OnTouchListener {
                                         }
                                         if (casillas[f][c].contenido == 9
                                                         && casillas[f][c].destapado) {
-                                                Paint bomba = new Paint();
-                                                bomba.setARGB(255, 255, 0, 0);
-                                                canvas.drawCircle(c * anchocua + (anchocua / 2),
-                                                                filaact + (anchocua / 2), 8, bomba);
-                                        }
+                                        	Paint bomba = new Paint();
+                    						canvas.drawBitmap(bmpmin,c * anchocua ,filaact,bomba);    }
 
                                 }
                                 filaact = filaact + anchocua;
