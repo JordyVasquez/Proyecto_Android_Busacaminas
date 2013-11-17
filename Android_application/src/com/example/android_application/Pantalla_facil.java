@@ -147,17 +147,29 @@ public class Pantalla_facil extends Activity implements OnTouchListener {
                         paint2.setTextSize(20);
                         paint2.setTypeface(Typeface.DEFAULT_BOLD);
                         
-                        
+                        Paint paintlinea1 = new Paint();
+            			paintlinea1.setARGB(255, 255, 255, 255);
                         Coordenada pintarnume;
                         int filaact = 0;
                         for (int f = 0; f < 8; f++) {
                                 for (int c = 0; c <8; c++) {
-                                        casillas[f][c].fijarxy(c * anchocua, filaact, anchocua);
+                                        casillas[f][c].fijarxy(c * anchocua, filaact+30, anchocua);
                                         if (casillas[f][c].destapado == false)
-                                        	canvas.drawBitmap(bmp0,c * anchocua, filaact, null);
+                                        	canvas.drawBitmap(bmp0,c * anchocua+6, filaact+6+30, null);
                                         else
-                                        	canvas.drawBitmap(bmp,c * anchocua, filaact, null);
-                                       
+                                        	canvas.drawBitmap(bmp,c * anchocua+6, filaact+6+30, null);
+                                
+                    					// linea blanca
+                    					canvas.drawLine(c * anchocua, filaact+30, c * anchocua
+                    							+ anchocua, filaact+30, paintlinea1);
+                    					canvas.drawLine(c * anchocua + anchocua - 1, filaact+30, c
+                    							* anchocua + anchocua - 1, filaact + anchocua+30,
+                    							paintlinea1);
+                    					if(c==7){
+                    						canvas.drawLine(8 * anchocua, filaact+10+anchocua, 8 * anchocua
+                        							+ anchocua, filaact+10+anchocua, paintlinea1);
+              
+                    					}
                                         
                                         pintarnume=new Coordenada(f, c);
                                         if (casillas[f][c].contenido >= 1
@@ -166,17 +178,18 @@ public class Pantalla_facil extends Activity implements OnTouchListener {
                                                 colornumeros(paint2, pintarnume);
                                                 canvas.drawText(
                                                                 String.valueOf(casillas[f][c].contenido), c
-                                                                                * anchocua + (anchocua / 2) - 8,
-                                                                filaact + anchocua / 2, paint2);
+                                                                                * anchocua +2+ (anchocua / 2) - 8,
+                                                                filaact+2 + +30+anchocua / 2, paint2);
                                         }
                                         if (casillas[f][c].contenido == 9
                                                         && casillas[f][c].destapado) {
                                         	Paint bomba = new Paint();
-                    						canvas.drawBitmap(bmpmin,c * anchocua ,filaact,bomba);    }
+                    						canvas.drawBitmap(bmpmin,c * anchocua+6 ,filaact+6+30,bomba);    }
 
                                 }
                                 filaact = filaact + anchocua;
                         }
+                      
                 }
         }
 
