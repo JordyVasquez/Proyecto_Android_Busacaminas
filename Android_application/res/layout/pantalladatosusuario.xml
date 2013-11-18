@@ -62,7 +62,7 @@
             android:id="@+id/textView1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_above="@+id/radioGroup1"
+            android:layout_above="@+id/selectnivel"
             android:layout_centerHorizontal="true"
             android:text="Escoja el nivel de dificultad"
             android:textAppearance="?android:attr/textAppearanceLarge" />
