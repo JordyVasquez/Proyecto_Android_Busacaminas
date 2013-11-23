@@ -19,6 +19,7 @@ import android.view.View.OnDragListener;
 import android.view.View.OnTouchListener;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
@@ -29,6 +30,7 @@ public class Pantalla_facil extends Activity implements OnTouchListener,
 	private Casilla[][] casillas;
 	int x, y, primerintento = 0;
 	LinkedList<Coordenada> cor_Bom;
+	View reiniciar;
 	Coordenada primera;
 	private boolean activo = true;
 	private boolean moviendoBan = false;
@@ -41,11 +43,13 @@ public class Pantalla_facil extends Activity implements OnTouchListener,
 				WindowManager.LayoutParams.FLAG_FULLSCREEN);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.tablerofacil);
+		reiniciar=(View)findViewById(R.id.button1);
 
 		LinearLayout layout = (LinearLayout) findViewById(R.id.tableroG);
 		tabla = new Tablero(this);
 		tabla.setOnTouchListener(this);
 		tabla.setOnDragListener(this);
+		
 		layout.addView(tabla);
 		casillas = new Casilla[8][8];
 		for (int f = 0; f < 8; f++) {
@@ -88,6 +92,7 @@ public class Pantalla_facil extends Activity implements OnTouchListener,
 		}
 		primerintento = 0;
 		activo = true;
+		reiniciar.setBackgroundResource(R.drawable.carafeliz);
 
 		tabla.invalidate();
 	}
@@ -114,6 +119,7 @@ public class Pantalla_facil extends Activity implements OnTouchListener,
 										this.contarBombasPerimetro(cor_Bom);
 
 										primerintento = 1;
+										reiniciar.setBackgroundResource(R.drawable.carasorpresa);
 									}
 									casillas[f][c].destapado = true;
 
@@ -123,6 +129,7 @@ public class Pantalla_facil extends Activity implements OnTouchListener,
 												"LOSER........PERDISTES",
 												Toast.LENGTH_LONG).show();
 										activo = false;
+										reiniciar.setBackgroundResource(R.drawable.caratriste);
 									} else if (casillas[f][c].contenido == 0) {
 										recorrer(f, c);
 									}
@@ -136,6 +143,7 @@ public class Pantalla_facil extends Activity implements OnTouchListener,
 			}
 			if (gano() && activo) {
 				Toast.makeText(this, "Ganaste", Toast.LENGTH_LONG).show();
+				reiniciar.setBackgroundResource(R.drawable.caraganador);
 				activo = false;
 			}
 		}

@@ -55,5 +55,6 @@ public class Pantalladatosusuarios extends Activity implements OnClickListener {
 			break;
 		}
 	}
+	
 
 }

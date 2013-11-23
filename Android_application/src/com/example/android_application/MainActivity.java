@@ -24,6 +24,7 @@ public class MainActivity extends Activity implements OnClickListener {
 
 		btStart.setOnClickListener(this);
 		btExit.setOnClickListener(this);
+		btInstrucciones.setOnClickListener(this);
 
 	}
 
@@ -44,13 +45,19 @@ public class MainActivity extends Activity implements OnClickListener {
 			startActivity(llama_pantalla_datos);
 			break;
 
+		case R.id.btInstrucciones:
+			Intent llama_Instrucciones = new Intent("com.example.android_application.Insrucciones");
+			startActivity(llama_Instrucciones);
+			break;
+
 		case R.id.btExit:
 
 			// TODO Auto-generated method stub
-			finish();
-			android.os.Process.killProcess(android.os.Process.myPid());
-			super.onDestroy();
-			// System.exit(1);
+			this.finish();// try activityname.finish instead of this
+			Intent intent = new Intent(Intent.ACTION_MAIN);
+			intent.addCategory(Intent.CATEGORY_HOME);
+			intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+			startActivity(intent);
 
 			break;
 		}

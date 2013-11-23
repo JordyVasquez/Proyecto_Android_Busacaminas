@@ -7,12 +7,13 @@
 
     <Button
         android:id="@+id/button1"
-        android:layout_width="80dp"
-        android:layout_height="35dp"
+        android:layout_width="55dp"
+        android:layout_height="50dp"
         android:layout_alignParentTop="true"
         android:layout_marginLeft="21dp"
+        android:background="@anim/custom_button"
         android:onClick="presionado"
-        android:text="Reiniciar" />
+        android:text="@string/vacio" />
 
     <ImageView
         android:id="@+id/flag"
@@ -23,7 +24,7 @@
         android:layout_marginLeft="28dp"
         android:layout_toRightOf="@+id/button1"
         android:src="@drawable/fichaflag" />
-    
+
     <LinearLayout
         android:id="@+id/tableroG"
         android:layout_width="wrap_content"
@@ -33,5 +34,5 @@
         android:layout_marginTop="18dp"
         android:orientation="vertical" >
     </LinearLayout>
-    
+
 </RelativeLayout>

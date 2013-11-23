@@ -1,25 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center_horizontal"
     android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/TituloReglas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="70dp"
+        android:text="INSTRUCCIONES"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center_vertical|center_horizontal"
-        android:text="Instrucciones
-        El juego consiste en despejar todas las casillas de una pantalla que no oculten una mina.
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/TituloReglas"
+        android:layout_gravity="center_horizontal|center"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="103dp"
+        android:text="El juego consiste en despejar todas las casillas de una pantalla que no oculten una mina.
 Algunas casillas tienen un número, este número indica las minas que suman todas las casillas circundantes. Así, si una casilla tiene el número 3, significa que de las ocho casillas que hay alrededor (si no es en una esquina o borde) hay 3 con minas y 5 sin minas. Si se descubre una casilla sin número indica que ninguna de las casillas vecinas tiene mina y estas se descubren automáticamente.
 Si se descubre una casilla con una mina se pierde la partida.
 Se puede poner una marca en las casillas que el jugador piensa que hay minas para ayudar a descubrir la que están cerca.
 El juego también posee un sistema de récords para cada uno de Los 4 niveles en el que se indica el menor tiempo en terminar el juego. Los niveles son (para las nuevas versiones):
 Nivel principiante: 8 × 8 casillas y 10 minas.
 Nivel intermedio: 16 × 16 casillas y 40 minas.
-Nivel experto: 16 × 30 casillas y 99 minas.
-Nivel personalizado: en este caso el usuario personaliza su juego eligiendo el número de minas y el tamaño de la cuadricula"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="@layout/instrucciones" />
+Nivel experto: 16 × 30 casillas y 99 minas."
+        android:textAppearance="?android:attr/textAppearanceLarge" />
 
-</LinearLayout>
+</RelativeLayout>
