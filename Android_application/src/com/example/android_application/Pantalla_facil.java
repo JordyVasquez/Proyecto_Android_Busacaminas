@@ -3,14 +3,17 @@ package com.example.android_application;
 import java.util.LinkedList;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.ClipData;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.text.InputFilter;
 import android.view.DragEvent;
 import android.view.MotionEvent;
 import android.view.View;
@@ -20,6 +23,7 @@ import android.view.View.OnTouchListener;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
@@ -32,6 +36,7 @@ public class Pantalla_facil extends Activity implements OnTouchListener,
 	LinkedList<Coordenada> cor_Bom;
 	View reiniciar;
 	Coordenada primera;
+	  Base_dedatosdel_jugador base;
 	private boolean activo = true;
 	private boolean moviendoBan = false;
 	ImageView flag;
@@ -49,7 +54,7 @@ public class Pantalla_facil extends Activity implements OnTouchListener,
 		tabla = new Tablero(this);
 		tabla.setOnTouchListener(this);
 		tabla.setOnDragListener(this);
-		
+		base=new Base_dedatosdel_jugador(this, "DBUsuarios", null, 1);
 		layout.addView(tabla);
 		casillas = new Casilla[8][8];
 		for (int f = 0; f < 8; f++) {
@@ -144,6 +149,31 @@ public class Pantalla_facil extends Activity implements OnTouchListener,
 			if (gano() && activo) {
 				Toast.makeText(this, "Ganaste", Toast.LENGTH_LONG).show();
 				reiniciar.setBackgroundResource(R.drawable.caraganador);
+				
+				AlertDialog.Builder alert = new AlertDialog.Builder(this);
+				alert.setTitle("Puntaje1.1");  //aqui escribes lo que quieras
+				alert.setMessage("Introduce tu nombre para guardar la partida"); //mensajito bonito
+				alert.setIcon(android.R.drawable.ic_dialog_info); // si quieres un icono
+				final EditText input = new EditText(this); //creas un Edit Text
+				int maxLength = 15; //si quieres ponerle caracteristicas al EditText
+				InputFilter[] FilterArray = new InputFilter[1];
+				FilterArray[0] = new InputFilter.LengthFilter(maxLength);
+				input.setFilters(FilterArray);      //por ejemplo maximo 10 caracteres
+				alert.setView(input); //añades el edit text a la vista del AlertDialog
+				    alert.setPositiveButton("Guardar", new  DialogInterface.OnClickListener() { // si le das al si
+				    public void onClick(DialogInterface dialog, int whichButton) {
+				                     //aqui haces lo que necesitas
+				    
+				    	base.guardarPuntuacion(1,input.getText().toString());
+				    	
+				    }
+				    
+				 
+				});
+				    
+					
+				alert.setNegativeButton("Atras", null);
+				alert.show();
 				activo = false;
 			}
 		}
@@ -226,6 +256,7 @@ public class Pantalla_facil extends Activity implements OnTouchListener,
 		}
 	}
 
+
 	class Tablero extends View {
 
 		public Tablero(Context context) {
@@ -249,7 +280,7 @@ public class Pantalla_facil extends Activity implements OnTouchListener,
 				ancho = tabla.getWidth();
 			else
 				ancho = tabla.getHeight();
-			int anchocua = ancho / 8;
+			int anchocua = ancho / 10;
 			Paint paint = new Paint();
 			paint.setTextSize(20);
 			Paint paint2 = new Paint();
@@ -257,54 +288,62 @@ public class Pantalla_facil extends Activity implements OnTouchListener,
 			paint2.setTypeface(Typeface.DEFAULT_BOLD);
 
 			Paint paintlinea1 = new Paint();
-			paintlinea1.setARGB(255, 255, 255, 255);
+			paintlinea1.setARGB(255, 100, 255, 255);
 			Coordenada pintarnume;
 			int filaact = 0;
+			//
+		
+			
 			for (int f = 0; f < 8; f++) {
 				for (int c = 0; c < 8; c++) {
 					casillas[f][c]
-							.fijarxy(c * anchocua, filaact + 30, anchocua);
+							.fijarxy(c * anchocua+30, filaact + 70, anchocua);
 					if (casillas[f][c].destapado == false)
 						if (casillas[f][c].conBandera == true) {
-							canvas.drawBitmap(bandera, c * anchocua + 6,
-									filaact + 6 + 30, null);
+							canvas.drawBitmap(bandera, c * anchocua + 34,
+									filaact +76, null);
 						} else {
-							canvas.drawBitmap(bmp0, c * anchocua + 6,
-									filaact + 6 + 30, null);
+							canvas.drawBitmap(bmp0, c * anchocua + 34,
+									filaact + 76, null);
 						}
 					else
-						canvas.drawBitmap(bmp, c * anchocua + 6,
-								filaact + 6 + 30, null);
+						canvas.drawBitmap(bmp, c * anchocua + 34,
+								filaact + 76, null);
 
 					// linea blanca
-					canvas.drawLine(c * anchocua, filaact + 30, c * anchocua
-							+ anchocua, filaact + 30, paintlinea1);
-					canvas.drawLine(c * anchocua + anchocua - 1, filaact + 30,
-							c * anchocua + anchocua - 1, filaact + anchocua
-									+ 30, paintlinea1);
-					if (c == 7) {
-						canvas.drawLine(8 * anchocua, filaact + 10 + anchocua,
-								8 * anchocua + anchocua, filaact + 10
-										+ anchocua, paintlinea1);
-
-					}
+					canvas.drawLine(c * anchocua+30, filaact +70, c * anchocua
+							+ anchocua+30, filaact + 70, paintlinea1);
+					canvas.drawLine(c * anchocua + anchocua - 1+30, filaact + 70,
+							c * anchocua + anchocua - 1+30, filaact + anchocua
+									+ 70, paintlinea1);
+					if(f==7){
+ 						canvas.drawLine(c * anchocua+30, filaact+70+anchocua, c * anchocua
+     							+ anchocua+30, filaact+70+anchocua, paintlinea1);
+ 					
+ 					}
+ 					if(c==0){
+ 						canvas.drawLine(c * anchocua - 1+30, filaact+70, c
+     							* anchocua  - 1+30, filaact + anchocua+70,
+     							paintlinea1);
+ 					}
+					
 
 					pintarnume = new Coordenada(f, c);
-					if (casillas[f][c].contenido >= 1
-							&& casillas[f][c].contenido <= 8
-							&& casillas[f][c].destapado) {
-						colornumeros(paint2, pintarnume);
-						canvas.drawText(
-								String.valueOf(casillas[f][c].contenido), c
-										* anchocua + 2 + (anchocua / 2) - 8,
-								filaact + 2 + +30 + anchocua / 2, paint2);
-					}
-					if (casillas[f][c].contenido == 9
-							&& casillas[f][c].destapado) {
-						Paint bomba = new Paint();
-						canvas.drawBitmap(bmpmin, c * anchocua + 6,
-								filaact + 6 + 30, bomba);
-					}
+					
+					  if (casillas[f][c].contenido >= 1
+                              && casillas[f][c].contenido <= 8
+                              && casillas[f][c].destapado){
+                      colornumeros(paint2, pintarnume);
+                      canvas.drawText(
+                                      String.valueOf(casillas[f][c].contenido), c
+                                                      * anchocua +3+ (anchocua / 2) - 8+30,
+                                      filaact+6 + 70+anchocua / 2, paint2);
+              }
+					  if (casillas[f][c].contenido == 9
+                              && casillas[f][c].destapado) {
+              	Paint bomba = new Paint();
+					canvas.drawBitmap(bmpmin,c * anchocua+4+30 ,filaact+5+70,bomba);    }
+
 
 				}
 				filaact = filaact + anchocua;

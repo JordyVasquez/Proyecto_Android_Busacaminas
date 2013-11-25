@@ -23,6 +23,7 @@ public class MainActivity extends Activity implements OnClickListener {
 		btExit = (Button) findViewById(R.id.btExit);
 
 		btStart.setOnClickListener(this);
+		btRecord.setOnClickListener(this);
 		btExit.setOnClickListener(this);
 		btInstrucciones.setOnClickListener(this);
 
@@ -43,6 +44,10 @@ public class MainActivity extends Activity implements OnClickListener {
 			Intent llama_pantalla_datos = new Intent(
 					"com.example.android_application.Pantalladatosusuarios");
 			startActivity(llama_pantalla_datos);
+			break;
+		case R.id.btRecord:
+			Intent record=new Intent("com.example.android_application.Record");
+			startActivity(record);
 			break;
 
 		case R.id.btInstrucciones:
