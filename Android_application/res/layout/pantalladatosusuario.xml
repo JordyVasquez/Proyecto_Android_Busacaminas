@@ -5,26 +5,6 @@
     android:gravity="center_horizontal"
     android:orientation="vertical" >
 
-    <TextView
-        android:id="@+id/tvNombre"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:text="Datos Jugador"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-
-    <EditText
-        android:id="@+id/etNombreUsuario"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:ems="10"
-        android:hint="  Ingrese su nombre"
-        android:inputType="textPersonName" >
-
-        <requestFocus />
-    </EditText>
-
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="241dp"

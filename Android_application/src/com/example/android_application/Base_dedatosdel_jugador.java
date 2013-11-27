@@ -24,9 +24,9 @@ public class Base_dedatosdel_jugador extends SQLiteOpenHelper{
         db.execSQL(sqlCreate);
     }
 	//Métodos de AlmacenPuntuaciones
-    public void guardarPuntuacion(int puntos, String nombre) {
+    public void guardarPuntuacion(Integer puntos, String nombre) {
           SQLiteDatabase db = getWritableDatabase();
-          db.execSQL("INSERT INTO Usuarios VALUES ("+ puntos+", '"+nombre+"')");
+          db.execSQL("INSERT INTO Usuarios VALUES ("+puntos+", '"+nombre+"')");
           db.close();
     }
     public void borrar() {

@@ -5,26 +5,6 @@
     android:layout_height="match_parent"
     tools:context=".Pantalla_facil" >
 
-    <Button
-        android:id="@+id/button1"
-        android:layout_width="55dp"
-        android:layout_height="50dp"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="21dp"
-        android:background="@anim/custom_button"
-        android:onClick="presionado"
-        android:text="@string/vacio" />
-
-    <ImageView
-        android:id="@+id/flag"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/button1"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="28dp"
-        android:layout_toRightOf="@+id/button1"
-        android:src="@drawable/fichaflag" />
-
     <LinearLayout
         android:id="@+id/tableroG"
         android:layout_width="wrap_content"
@@ -34,5 +14,42 @@
         android:layout_marginTop="18dp"
         android:orientation="vertical" >
     </LinearLayout>
+
+    <Chronometer
+        android:id="@+id/crono"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/button1"
+        android:layout_alignBottom="@+id/button1"
+        android:layout_marginLeft="45dp"
+        android:layout_toRightOf="@+id/button1"
+        android:text="Chronometer" />
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="55dp"
+        android:layout_height="50dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:background="@anim/custom_button"
+        android:onClick="presionado"
+        android:text="@string/vacio" />
+
+    <ImageView
+        android:id="@+id/flag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/button1"
+        android:layout_marginRight="21dp"
+        android:layout_toLeftOf="@+id/button1"
+        android:src="@drawable/fichaflag" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="55dp"
+        android:layout_height="50dp"
+        android:background="@layout/botonconfig"
+        android:layout_above="@+id/tableroG"
+        android:layout_alignParentLeft="true" />
 
 </RelativeLayout>

@@ -13,6 +13,7 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.text.InputFilter;
 import android.view.DragEvent;
 import android.view.MotionEvent;
@@ -23,6 +24,7 @@ import android.view.View.OnTouchListener;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.Chronometer;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -34,12 +36,16 @@ public class Pantalla_facil extends Activity implements OnTouchListener,
 	private Casilla[][] casillas;
 	int x, y, primerintento = 0;
 	LinkedList<Coordenada> cor_Bom;
-	View reiniciar;
+	View reiniciar,config;
 	Coordenada primera;
-	  Base_dedatosdel_jugador base;
+	Base_dedatosdel_jugador base;
 	private boolean activo = true;
 	private boolean moviendoBan = false;
 	ImageView flag;
+	Chronometer crono;
+	String estado="inactivo";
+	String chronoText;
+
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +55,8 @@ public class Pantalla_facil extends Activity implements OnTouchListener,
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.tablerofacil);
 		reiniciar=(View)findViewById(R.id.button1);
+		config=(View)findViewById(R.id.button2);
+		crono=(Chronometer) findViewById(R.id.crono);
 
 		LinearLayout layout = (LinearLayout) findViewById(R.id.tableroG);
 		tabla = new Tablero(this);
@@ -98,7 +106,9 @@ public class Pantalla_facil extends Activity implements OnTouchListener,
 		primerintento = 0;
 		activo = true;
 		reiniciar.setBackgroundResource(R.drawable.carafeliz);
-
+		crono.stop();
+		crono.setBase(SystemClock.elapsedRealtime());
+		estado="inactivo";
 		tabla.invalidate();
 	}
 
@@ -106,6 +116,12 @@ public class Pantalla_facil extends Activity implements OnTouchListener,
 	public boolean onTouch(View v, MotionEvent event) {
 		if (event.getAction() == MotionEvent.ACTION_DOWN) {
 			if (activo) {
+				if(estado=="inactivo")
+				{
+					crono.setBase(SystemClock.elapsedRealtime());
+					crono.start();
+					estado="activo";
+				}
 				int X = (int) event.getX();
 				int Y = (int) event.getY();
 				for (int f = 0; f < 8; f++) {
@@ -130,6 +146,8 @@ public class Pantalla_facil extends Activity implements OnTouchListener,
 
 									if (casillas[f][c].contenido == 9) {
 										Destaparbombas(cor_Bom);
+										crono.stop();
+										estado="inactivo";
 										Toast.makeText(this,
 												"LOSER........PERDISTES",
 												Toast.LENGTH_LONG).show();
@@ -148,10 +166,14 @@ public class Pantalla_facil extends Activity implements OnTouchListener,
 			}
 			if (gano() && activo) {
 				Toast.makeText(this, "Ganaste", Toast.LENGTH_LONG).show();
+
+				crono.stop();
+				estado="inactivo";
+			    chronoText = crono.getText().toString(); 
 				reiniciar.setBackgroundResource(R.drawable.caraganador);
 				
 				AlertDialog.Builder alert = new AlertDialog.Builder(this);
-				alert.setTitle("Puntaje1.1");  //aqui escribes lo que quieras
+				alert.setTitle("Puntaje:"+chronoText);  //aqui escribes lo que quieras
 				alert.setMessage("Introduce tu nombre para guardar la partida"); //mensajito bonito
 				alert.setIcon(android.R.drawable.ic_dialog_info); // si quieres un icono
 				final EditText input = new EditText(this); //creas un Edit Text
@@ -163,8 +185,8 @@ public class Pantalla_facil extends Activity implements OnTouchListener,
 				    alert.setPositiveButton("Guardar", new  DialogInterface.OnClickListener() { // si le das al si
 				    public void onClick(DialogInterface dialog, int whichButton) {
 				                     //aqui haces lo que necesitas
-				    
-				    	base.guardarPuntuacion(1,input.getText().toString());
+				    	
+				    	base.guardarPuntuacion(Integer.parseInt(chronoText),input.getText().toString());
 				    	
 				    }
 				    
