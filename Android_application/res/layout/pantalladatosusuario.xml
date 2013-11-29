@@ -2,72 +2,85 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bombs"
     android:gravity="center_horizontal"
     android:orientation="vertical" >
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="241dp"
+        android:layout_height="315dp"
         android:orientation="horizontal" >
 
         <RadioGroup
             android:id="@+id/selectnivel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:layout_marginLeft="90dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="130dp"
             android:orientation="vertical" >
 
             <RadioButton
                 android:id="@+id/rdfacil"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Facil" />
+                android:text="Facil"
+                android:textSize="25sp"
+                android:textStyle="italic" />
 
             <RadioButton
                 android:id="@+id/rdmedio"
-                android:layout_width="wrap_content"
+                android:layout_width="123dp"
                 android:layout_height="wrap_content"
-                android:text="Medio" />
+                android:text="Medio"
+                android:textSize="25sp"
+                android:textStyle="italic" />
 
             <RadioButton
                 android:id="@+id/rddificil"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                
-                android:text="Dificil" />
+                android:text="Dificil"
+                android:textSize="25sp"
+                android:textStyle="italic" />
         </RadioGroup>
 
         <TextView
             android:id="@+id/textView1"
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_above="@+id/selectnivel"
-            android:layout_centerHorizontal="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="65dp"
+            android:gravity="center"
             android:text="Escoja el nivel de dificultad"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
-
-    </RelativeLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="112dp" >
-
-        <Button
-            android:id="@+id/Jugar"
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Jugar" />
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="30sp"
+            android:textStyle="bold|italic" />
 
         <Button
             android:id="@+id/volver"
             style="?android:attr/buttonStyleSmall"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Volver" />
-    </LinearLayout>
+            android:layout_width="70dp"
+            android:layout_height="60dp"
+            android:layout_alignParentTop="true"
+            android:layout_toLeftOf="@+id/selectnivel"
+            android:background="@drawable/home" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="300dp" >
+
+        <Button
+            android:id="@+id/Jugar"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="85dp"
+            android:layout_height="70dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="27dp"
+            android:background="@drawable/play" />
+    </RelativeLayout>
 
 </LinearLayout>

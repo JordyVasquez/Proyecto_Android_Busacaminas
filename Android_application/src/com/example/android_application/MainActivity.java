@@ -51,7 +51,7 @@ public class MainActivity extends Activity implements OnClickListener {
 			break;
 
 		case R.id.btInstrucciones:
-			Intent llama_Instrucciones = new Intent("com.example.android_application.Insrucciones");
+			Intent llama_Instrucciones = new Intent("com.example.android_application.Instrucciones");
 			startActivity(llama_Instrucciones);
 			break;
 

@@ -42,10 +42,10 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.example.android_application.Insrucciones"
+            android:name="com.example.android_application.Instrucciones"
             android:label="@string/app_name" >
             <intent-filter>
-                <action android:name="com.example.android_application.Insrucciones" />
+                <action android:name="com.example.android_application.Instrucciones" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
