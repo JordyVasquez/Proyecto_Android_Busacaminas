@@ -12,7 +12,7 @@ import android.util.Log;
 
 public class Base_dedatosdel_jugador extends SQLiteOpenHelper{
 
-	String sqlCreate = "CREATE TABLE Usuarios (puntaje INTEGER, nombre TEXT)";
+	String sqlCreate = "CREATE TABLE Usuarios (puntaje Text, nombre TEXT)";
 	public Base_dedatosdel_jugador(Context context, String name,
 			CursorFactory factory, int version) {
 		super(context, name, factory, version);
@@ -24,9 +24,9 @@ public class Base_dedatosdel_jugador extends SQLiteOpenHelper{
         db.execSQL(sqlCreate);
     }
 	//Métodos de AlmacenPuntuaciones
-    public void guardarPuntuacion(Integer puntos, String nombre) {
+    public void guardarPuntuacion(String puntos, String nombre) {
           SQLiteDatabase db = getWritableDatabase();
-          db.execSQL("INSERT INTO Usuarios VALUES ("+puntos+", '"+nombre+"')");
+          db.execSQL("INSERT INTO Usuarios VALUES ('"+puntos+"', '"+nombre+"')");
           db.close();
     }
     public void borrar() {
@@ -49,7 +49,7 @@ public class Base_dedatosdel_jugador extends SQLiteOpenHelper{
          Cursor cursor = db.rawQuery("SELECT puntaje, nombre FROM " +
           "Usuarios ORDER BY puntaje",null);
          while (cursor.moveToNext()){
-                       result.add(cursor.getInt(0)+" " +cursor.getString(1));
+                       result.add(cursor.getString(0)+" " +cursor.getString(1));
           }
          cursor.close();
          db.close();

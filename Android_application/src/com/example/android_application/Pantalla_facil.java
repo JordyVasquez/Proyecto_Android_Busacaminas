@@ -44,8 +44,9 @@ public class Pantalla_facil extends Activity implements OnTouchListener,
 	ImageView flag;
 	Chronometer crono;
 	String estado="inactivo";
-	String chronoText;
-
+	String chronoText;   
+	int anchos,ancho2;
+//
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -62,7 +63,9 @@ public class Pantalla_facil extends Activity implements OnTouchListener,
 		tabla = new Tablero(this);
 		tabla.setOnTouchListener(this);
 		tabla.setOnDragListener(this);
+		
 		base=new Base_dedatosdel_jugador(this, "DBUsuarios", null, 1);
+	
 		layout.addView(tabla);
 		casillas = new Casilla[8][8];
 		for (int f = 0; f < 8; f++) {
@@ -149,7 +152,7 @@ public class Pantalla_facil extends Activity implements OnTouchListener,
 										crono.stop();
 										estado="inactivo";
 										Toast.makeText(this,
-												"LOSER........PERDISTES",
+												"LOSER........PERDISTES    "+anchos  +"  "+ ancho2,
 												Toast.LENGTH_LONG).show();
 										activo = false;
 										reiniciar.setBackgroundResource(R.drawable.caratriste);
@@ -184,10 +187,9 @@ public class Pantalla_facil extends Activity implements OnTouchListener,
 				alert.setView(input); //añades el edit text a la vista del AlertDialog
 				    alert.setPositiveButton("Guardar", new  DialogInterface.OnClickListener() { // si le das al si
 				    public void onClick(DialogInterface dialog, int whichButton) {
-				                     //aqui haces lo que necesitas
-				    	
-				    	base.guardarPuntuacion(Integer.parseInt(chronoText),input.getText().toString());
-				    	
+				                    
+				    	base.guardarPuntuacion(chronoText,input.getText().toString());
+				    	//u
 				    }
 				    
 				 
@@ -296,12 +298,23 @@ public class Pantalla_facil extends Activity implements OnTouchListener,
 
 			Bitmap bandera = BitmapFactory.decodeResource(getResources(),
 					R.drawable.fichaflag);
+			bandera.createBitmap(bandera, CONTEXT_INCLUDE_CODE, CONTEXT_IGNORE_SECURITY, 10, 10);
 
-			int ancho = 0;
-			if (canvas.getWidth() < canvas.getHeight())
+		
+			int ancho = 0,medio,medio2;
+			if (canvas.getWidth() < canvas.getHeight()){
 				ancho = tabla.getWidth();
-			else
+				ancho2=ancho;
+				anchos=tabla.getHeight();
+			     medio=(ancho/2)-(4*ancho/10);
+			     medio2=(anchos/2)-(4*ancho/10);
+			}
+			else{
 				ancho = tabla.getHeight();
+		    ancho2=ancho;
+			anchos=tabla.getWidth();
+		    medio2=(ancho/2)-(4*ancho/10);
+		    medio=(anchos/2)-(4*ancho/10);}
 			int anchocua = ancho / 10;
 			Paint paint = new Paint();
 			paint.setTextSize(20);
@@ -319,33 +332,35 @@ public class Pantalla_facil extends Activity implements OnTouchListener,
 			for (int f = 0; f < 8; f++) {
 				for (int c = 0; c < 8; c++) {
 					casillas[f][c]
-							.fijarxy(c * anchocua+30, filaact + 70, anchocua);
+							.fijarxy(c * anchocua+medio, filaact + medio2, anchocua);
 					if (casillas[f][c].destapado == false)
 						if (casillas[f][c].conBandera == true) {
-							canvas.drawBitmap(bandera, c * anchocua + 34,
-									filaact +76, null);
+							
+				
+							canvas.drawBitmap(bandera, c * anchocua + medio,
+									filaact +medio2, null);
 						} else {
-							canvas.drawBitmap(bmp0, c * anchocua + 34,
-									filaact + 76, null);
+							canvas.drawBitmap(bmp0, c * anchocua + medio,
+									filaact + medio2, null);
 						}
 					else
-						canvas.drawBitmap(bmp, c * anchocua + 34,
-								filaact + 76, null);
+						canvas.drawBitmap(bmp, c * anchocua + medio,
+								filaact + medio2, null);
 
 					// linea blanca
-					canvas.drawLine(c * anchocua+30, filaact +70, c * anchocua
-							+ anchocua+30, filaact + 70, paintlinea1);
-					canvas.drawLine(c * anchocua + anchocua - 1+30, filaact + 70,
-							c * anchocua + anchocua - 1+30, filaact + anchocua
-									+ 70, paintlinea1);
+					canvas.drawLine(c * anchocua+medio, filaact +medio2, c * anchocua
+							+ anchocua+medio, filaact + medio2, paintlinea1);
+					canvas.drawLine(c * anchocua + anchocua +medio, filaact + medio2,
+							c * anchocua + anchocua +medio, filaact + anchocua
+									+ medio2, paintlinea1);
 					if(f==7){
- 						canvas.drawLine(c * anchocua+30, filaact+70+anchocua, c * anchocua
-     							+ anchocua+30, filaact+70+anchocua, paintlinea1);
+ 						canvas.drawLine(c * anchocua+medio, filaact+medio2+anchocua, c * anchocua
+     							+ anchocua+medio, filaact+medio2+anchocua, paintlinea1);
  					
  					}
  					if(c==0){
- 						canvas.drawLine(c * anchocua - 1+30, filaact+70, c
-     							* anchocua  - 1+30, filaact + anchocua+70,
+ 						canvas.drawLine(c * anchocua +medio, filaact+medio2, c
+     							* anchocua  +medio, filaact + anchocua+medio2,
      							paintlinea1);
  					}
 					
@@ -358,13 +373,13 @@ public class Pantalla_facil extends Activity implements OnTouchListener,
                       colornumeros(paint2, pintarnume);
                       canvas.drawText(
                                       String.valueOf(casillas[f][c].contenido), c
-                                                      * anchocua +3+ (anchocua / 2) - 8+30,
-                                      filaact+6 + 70+anchocua / 2, paint2);
+                                                      * anchocua + (anchocua / 2)+medio,
+                                      filaact + medio2+anchocua / 2, paint2);
               }
 					  if (casillas[f][c].contenido == 9
                               && casillas[f][c].destapado) {
               	Paint bomba = new Paint();
-					canvas.drawBitmap(bmpmin,c * anchocua+4+30 ,filaact+5+70,bomba);    }
+					canvas.drawBitmap(bmpmin,c * anchocua+medio ,filaact+medio2,bomba);    }
 
 
 				}
