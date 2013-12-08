@@ -7,11 +7,17 @@ import android.app.AlertDialog;
 import android.content.ClipData;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.res.AssetFileDescriptor;
+import android.content.res.AssetManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Typeface;
+import android.media.AudioManager;
+import android.media.MediaPlayer;
+import android.media.MediaPlayer.OnCompletionListener;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.text.InputFilter;
@@ -19,6 +25,7 @@ import android.view.DragEvent;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.DragShadowBuilder;
+import android.view.View.OnClickListener;
 import android.view.View.OnDragListener;
 import android.view.View.OnTouchListener;
 import android.view.Window;
@@ -31,22 +38,25 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 public class Pantalla_facil extends Activity implements OnTouchListener,
-		OnDragListener {
+		OnDragListener, OnCompletionListener, OnClickListener {
 	private Tablero tabla;
 	private Casilla[][] casillas;
 	int x, y, primerintento = 0;
 	LinkedList<Coordenada> cor_Bom;
-	View reiniciar,config;
+	View reiniciar, config;
 	Coordenada primera;
 	Base_dedatosdel_jugador base;
 	private boolean activo = true;
 	private boolean moviendoBan = false;
 	ImageView flag;
 	Chronometer crono;
-	String estado="inactivo";
-	String chronoText;   
-	int anchos,ancho2;
-//
+	Button inicio;
+	MediaPlayer player;
+	String estado = "inactivo";
+	String chronoText;
+	int anchos, ancho2;
+
+	//
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -55,17 +65,20 @@ public class Pantalla_facil extends Activity implements OnTouchListener,
 				WindowManager.LayoutParams.FLAG_FULLSCREEN);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.tablerofacil);
-		reiniciar=(View)findViewById(R.id.button1);
-		config=(View)findViewById(R.id.button2);
-		crono=(Chronometer) findViewById(R.id.crono);
+		setVolumeControlStream(AudioManager.STREAM_MUSIC);
+		reiniciar = (View) findViewById(R.id.button1);
+		config = (View) findViewById(R.id.button2);
+		crono = (Chronometer) findViewById(R.id.crono);
+		inicio=(Button) findViewById(R.id.bthome);
 
 		LinearLayout layout = (LinearLayout) findViewById(R.id.tableroG);
 		tabla = new Tablero(this);
 		tabla.setOnTouchListener(this);
 		tabla.setOnDragListener(this);
-		
-		base=new Base_dedatosdel_jugador(this, "DBUsuarios", null, 1);
-	
+		inicio.setOnClickListener(this);
+
+		base = new Base_dedatosdel_jugador(this, "DBUsuarios", null, 1);
+
 		layout.addView(tabla);
 		casillas = new Casilla[8][8];
 		for (int f = 0; f < 8; f++) {
@@ -111,19 +124,20 @@ public class Pantalla_facil extends Activity implements OnTouchListener,
 		reiniciar.setBackgroundResource(R.drawable.carafeliz);
 		crono.stop();
 		crono.setBase(SystemClock.elapsedRealtime());
-		estado="inactivo";
+		estado = "inactivo";
 		tabla.invalidate();
 	}
 
 	@Override
 	public boolean onTouch(View v, MotionEvent event) {
+		AssetFileDescriptor descriptor;
+		
 		if (event.getAction() == MotionEvent.ACTION_DOWN) {
 			if (activo) {
-				if(estado=="inactivo")
-				{
+				if (estado == "inactivo") {
 					crono.setBase(SystemClock.elapsedRealtime());
 					crono.start();
-					estado="activo";
+					estado = "activo";
 				}
 				int X = (int) event.getX();
 				int Y = (int) event.getY();
@@ -143,19 +157,44 @@ public class Pantalla_facil extends Activity implements OnTouchListener,
 										this.contarBombasPerimetro(cor_Bom);
 
 										primerintento = 1;
-										reiniciar.setBackgroundResource(R.drawable.carasorpresa);
+										reiniciar
+												.setBackgroundResource(R.drawable.carasorpresa);
 									}
 									casillas[f][c].destapado = true;
 
 									if (casillas[f][c].contenido == 9) {
 										Destaparbombas(cor_Bom);
 										crono.stop();
-										estado="inactivo";
-										Toast.makeText(this,
-												"LOSER........PERDISTES    "+anchos  +"  "+ ancho2,
+										estado = "inactivo";
+										
+										AssetManager manager = this.getAssets();
+										player = new MediaPlayer();
+										try {
+											descriptor = manager
+													.openFd("bombaExplosion.mp3");
+											player.setDataSource(
+													descriptor
+															.getFileDescriptor(),
+													descriptor.getStartOffset(),
+													descriptor.getLength());
+											player.prepare();
+											player.start();
+											player.release();
+											player.setOnCompletionListener(this);
+
+										} catch (Exception e) {
+										}
+										;
+
+										Toast.makeText(
+												this,
+												"LOSER........PERDISTES    "
+														+ anchos + "  "
+														+ ancho2,
 												Toast.LENGTH_LONG).show();
 										activo = false;
-										reiniciar.setBackgroundResource(R.drawable.caratriste);
+										reiniciar
+												.setBackgroundResource(R.drawable.caratriste);
 									} else if (casillas[f][c].contenido == 0) {
 										recorrer(f, c);
 									}
@@ -171,31 +210,39 @@ public class Pantalla_facil extends Activity implements OnTouchListener,
 				Toast.makeText(this, "Ganaste", Toast.LENGTH_LONG).show();
 
 				crono.stop();
-				estado="inactivo";
-			    chronoText = crono.getText().toString(); 
+				estado = "inactivo";
+				chronoText = crono.getText().toString();
 				reiniciar.setBackgroundResource(R.drawable.caraganador);
-				
+
 				AlertDialog.Builder alert = new AlertDialog.Builder(this);
-				alert.setTitle("Puntaje:"+chronoText);  //aqui escribes lo que quieras
-				alert.setMessage("Introduce tu nombre para guardar la partida"); //mensajito bonito
-				alert.setIcon(android.R.drawable.ic_dialog_info); // si quieres un icono
-				final EditText input = new EditText(this); //creas un Edit Text
-				int maxLength = 15; //si quieres ponerle caracteristicas al EditText
+				alert.setTitle("Puntaje:" + chronoText); // aqui escribes lo que
+															// quieras
+				alert.setMessage("Introduce tu nombre para guardar la partida"); // mensajito
+																					// bonito
+				alert.setIcon(android.R.drawable.ic_dialog_info); // si quieres
+																	// un icono
+				final EditText input = new EditText(this); // creas un Edit Text
+				int maxLength = 15; // si quieres ponerle caracteristicas al
+									// EditText
 				InputFilter[] FilterArray = new InputFilter[1];
 				FilterArray[0] = new InputFilter.LengthFilter(maxLength);
-				input.setFilters(FilterArray);      //por ejemplo maximo 10 caracteres
-				alert.setView(input); //añades el edit text a la vista del AlertDialog
-				    alert.setPositiveButton("Guardar", new  DialogInterface.OnClickListener() { // si le das al si
-				    public void onClick(DialogInterface dialog, int whichButton) {
-				                    
-				    	base.guardarPuntuacion(chronoText,input.getText().toString());
-				    	//u
-				    }
-				    
-				 
-				});
-				    
-					
+				input.setFilters(FilterArray); // por ejemplo maximo 10
+												// caracteres
+				alert.setView(input); // añades el edit text a la vista del
+										// AlertDialog
+				alert.setPositiveButton("Guardar",
+						new DialogInterface.OnClickListener() { // si le das al
+							// si
+							public void onClick(DialogInterface dialog,
+									int whichButton) {
+
+								base.guardarPuntuacion(chronoText, input
+										.getText().toString());
+								// u
+							}
+
+						});
+
 				alert.setNegativeButton("Atras", null);
 				alert.show();
 				activo = false;
@@ -280,7 +327,6 @@ public class Pantalla_facil extends Activity implements OnTouchListener,
 		}
 	}
 
-
 	class Tablero extends View {
 
 		public Tablero(Context context) {
@@ -298,23 +344,23 @@ public class Pantalla_facil extends Activity implements OnTouchListener,
 
 			Bitmap bandera = BitmapFactory.decodeResource(getResources(),
 					R.drawable.fichaflag);
-			bandera.createBitmap(bandera, CONTEXT_INCLUDE_CODE, CONTEXT_IGNORE_SECURITY, 10, 10);
+			bandera.createBitmap(bandera, CONTEXT_INCLUDE_CODE,
+					CONTEXT_IGNORE_SECURITY, 10, 10);
 
-		
-			int ancho = 0,medio,medio2;
-			if (canvas.getWidth() < canvas.getHeight()){
+			int ancho = 0, medio, medio2;
+			if (canvas.getWidth() < canvas.getHeight()) {
 				ancho = tabla.getWidth();
-				ancho2=ancho;
-				anchos=tabla.getHeight();
-			     medio=(ancho/2)-(4*ancho/10);
-			     medio2=(anchos/2)-(4*ancho/10);
-			}
-			else{
+				ancho2 = ancho;
+				anchos = tabla.getHeight();
+				medio = (ancho / 2) - (4 * ancho / 10);
+				medio2 = (anchos / 2) - (4 * ancho / 10);
+			} else {
 				ancho = tabla.getHeight();
-		    ancho2=ancho;
-			anchos=tabla.getWidth();
-		    medio2=(ancho/2)-(4*ancho/10);
-		    medio=(anchos/2)-(4*ancho/10);}
+				ancho2 = ancho;
+				anchos = tabla.getWidth();
+				medio2 = (ancho / 2) - (4 * ancho / 10);
+				medio = (anchos / 2) - (4 * ancho / 10);
+			}
 			int anchocua = ancho / 10;
 			Paint paint = new Paint();
 			paint.setTextSize(20);
@@ -327,60 +373,60 @@ public class Pantalla_facil extends Activity implements OnTouchListener,
 			Coordenada pintarnume;
 			int filaact = 0;
 			//
-		
-			
+
 			for (int f = 0; f < 8; f++) {
 				for (int c = 0; c < 8; c++) {
-					casillas[f][c]
-							.fijarxy(c * anchocua+medio, filaact + medio2, anchocua);
+					casillas[f][c].fijarxy(c * anchocua + medio, filaact
+							+ medio2, anchocua);
 					if (casillas[f][c].destapado == false)
 						if (casillas[f][c].conBandera == true) {
-							
-				
+
 							canvas.drawBitmap(bandera, c * anchocua + medio,
-									filaact +medio2, null);
+									filaact + medio2, null);
 						} else {
 							canvas.drawBitmap(bmp0, c * anchocua + medio,
 									filaact + medio2, null);
 						}
 					else
-						canvas.drawBitmap(bmp, c * anchocua + medio,
-								filaact + medio2, null);
+						canvas.drawBitmap(bmp, c * anchocua + medio, filaact
+								+ medio2, null);
 
 					// linea blanca
-					canvas.drawLine(c * anchocua+medio, filaact +medio2, c * anchocua
-							+ anchocua+medio, filaact + medio2, paintlinea1);
-					canvas.drawLine(c * anchocua + anchocua +medio, filaact + medio2,
-							c * anchocua + anchocua +medio, filaact + anchocua
-									+ medio2, paintlinea1);
-					if(f==7){
- 						canvas.drawLine(c * anchocua+medio, filaact+medio2+anchocua, c * anchocua
-     							+ anchocua+medio, filaact+medio2+anchocua, paintlinea1);
- 					
- 					}
- 					if(c==0){
- 						canvas.drawLine(c * anchocua +medio, filaact+medio2, c
-     							* anchocua  +medio, filaact + anchocua+medio2,
-     							paintlinea1);
- 					}
-					
+					canvas.drawLine(c * anchocua + medio, filaact + medio2, c
+							* anchocua + anchocua + medio, filaact + medio2,
+							paintlinea1);
+					canvas.drawLine(c * anchocua + anchocua + medio, filaact
+							+ medio2, c * anchocua + anchocua + medio, filaact
+							+ anchocua + medio2, paintlinea1);
+					if (f == 7) {
+						canvas.drawLine(c * anchocua + medio, filaact + medio2
+								+ anchocua, c * anchocua + anchocua + medio,
+								filaact + medio2 + anchocua, paintlinea1);
+
+					}
+					if (c == 0) {
+						canvas.drawLine(c * anchocua + medio, filaact + medio2,
+								c * anchocua + medio, filaact + anchocua
+										+ medio2, paintlinea1);
+					}
 
 					pintarnume = new Coordenada(f, c);
-					
-					  if (casillas[f][c].contenido >= 1
-                              && casillas[f][c].contenido <= 8
-                              && casillas[f][c].destapado){
-                      colornumeros(paint2, pintarnume);
-                      canvas.drawText(
-                                      String.valueOf(casillas[f][c].contenido), c
-                                                      * anchocua + (anchocua / 2)+medio,
-                                      filaact + medio2+anchocua / 2, paint2);
-              }
-					  if (casillas[f][c].contenido == 9
-                              && casillas[f][c].destapado) {
-              	Paint bomba = new Paint();
-					canvas.drawBitmap(bmpmin,c * anchocua+medio ,filaact+medio2,bomba);    }
 
+					if (casillas[f][c].contenido >= 1
+							&& casillas[f][c].contenido <= 8
+							&& casillas[f][c].destapado) {
+						colornumeros(paint2, pintarnume);
+						canvas.drawText(
+								String.valueOf(casillas[f][c].contenido), c
+										* anchocua + (anchocua / 2) + medio,
+								filaact + medio2 + anchocua / 2, paint2);
+					}
+					if (casillas[f][c].contenido == 9
+							&& casillas[f][c].destapado) {
+						Paint bomba = new Paint();
+						canvas.drawBitmap(bmpmin, c * anchocua + medio, filaact
+								+ medio2, bomba);
+					}
 
 				}
 				filaact = filaact + anchocua;
@@ -567,5 +613,21 @@ public class Pantalla_facil extends Activity implements OnTouchListener,
 				}
 			}
 		}
+	}
+
+	@Override
+	public void onCompletion(MediaPlayer arg0) {
+		// TODO Auto-generated method stub
+		player.stop();
+
+	}
+
+	@Override
+	public void onClick(View v) {
+		// TODO Auto-generated method stub
+	
+		Intent inicio = new Intent(this, MainActivity.class);
+		startActivity(inicio);
+		
 	}
 }

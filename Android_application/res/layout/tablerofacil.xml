@@ -45,11 +45,12 @@
         android:src="@drawable/fichaflag" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/bthome"
+        style="?android:attr/buttonStyleSmall"
         android:layout_width="55dp"
-        android:layout_height="50dp"
-        android:background="@layout/botonconfig"
-        android:layout_above="@+id/tableroG"
-        android:layout_alignParentLeft="true" />
+        android:layout_height="45dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/home" />
 
 </RelativeLayout>

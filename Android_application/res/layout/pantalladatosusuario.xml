@@ -9,41 +9,8 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="315dp"
+        android:layout_weight="5.22"
         android:orientation="horizontal" >
-
-        <RadioGroup
-            android:id="@+id/selectnivel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="130dp"
-            android:orientation="vertical" >
-
-            <RadioButton
-                android:id="@+id/rdfacil"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Facil"
-                android:textSize="25sp"
-                android:textStyle="italic" />
-
-            <RadioButton
-                android:id="@+id/rdmedio"
-                android:layout_width="123dp"
-                android:layout_height="wrap_content"
-                android:text="Medio"
-                android:textSize="25sp"
-                android:textStyle="italic" />
-
-            <RadioButton
-                android:id="@+id/rddificil"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Dificil"
-                android:textSize="25sp"
-                android:textStyle="italic" />
-        </RadioGroup>
 
         <TextView
             android:id="@+id/textView1"
@@ -55,8 +22,19 @@
             android:gravity="center"
             android:text="Escoja el nivel de dificultad"
             android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#0000ff"
             android:textSize="30sp"
             android:textStyle="bold|italic" />
+
+        <Button
+            android:id="@+id/btFacil"
+           android:layout_width="140px"
+            android:layout_height="50px"
+            android:layout_below="@+id/textView1"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="45dp"
+            android:background="@drawable/boton3"
+            android:text="Fácil" />
 
         <Button
             android:id="@+id/volver"
@@ -66,21 +44,37 @@
             android:layout_alignParentTop="true"
             android:layout_toLeftOf="@+id/selectnivel"
             android:background="@drawable/home" />
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="300dp" >
 
         <Button
-            android:id="@+id/Jugar"
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="85dp"
-            android:layout_height="70dp"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="27dp"
-            android:background="@drawable/play" />
+            android:id="@+id/btIntermedio"
+            android:layout_width="140px"
+            android:layout_height="50px"
+            android:layout_alignLeft="@+id/btFacil"
+            android:layout_below="@+id/btFacil"
+            android:layout_marginTop="29dp"
+            android:background="@drawable/boton3"
+            android:text="Intermedio" />
+
+        <Button
+            android:id="@+id/btDificil"
+            android:layout_width="140px"
+            android:layout_height="50px"
+            android:layout_alignLeft="@+id/btIntermedio"
+            android:layout_below="@+id/btIntermedio"
+            android:layout_marginTop="31dp"
+            android:background="@drawable/boton3"
+            android:text="Difícil" />
+
+        <Button
+            android:id="@+id/btPersonalizado"
+            android:layout_width="140px"
+            android:layout_height="50px"
+            android:layout_alignLeft="@+id/btDificil"
+            android:layout_below="@+id/btDificil"
+            android:layout_marginTop="33dp"
+            android:background="@drawable/boton3"
+            android:text="Personalizado" />
+
     </RelativeLayout>
 
 </LinearLayout>
