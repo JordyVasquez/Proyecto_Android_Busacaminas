@@ -27,53 +27,53 @@
             android:textStyle="bold|italic" />
 
         <Button
-            android:id="@+id/btFacil"
-           android:layout_width="140px"
-            android:layout_height="50px"
-            android:layout_below="@+id/textView1"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="45dp"
-            android:background="@drawable/boton3"
-            android:text="Fácil" />
-
-        <Button
             android:id="@+id/volver"
             style="?android:attr/buttonStyleSmall"
             android:layout_width="70dp"
-            android:layout_height="60dp"
+            android:layout_height="40px"
             android:layout_alignParentTop="true"
             android:layout_toLeftOf="@+id/selectnivel"
             android:background="@drawable/home" />
 
         <Button
+            android:id="@+id/btPersonalizado"
+            android:layout_width="140px"
+            android:layout_height="40px"
+            android:layout_alignLeft="@+id/btDificil"
+            android:layout_below="@+id/btDificil"
+            android:layout_marginTop="22dp"
+            android:background="@drawable/boton3"
+            android:text="Personalizado" />
+
+        <Button
+            android:id="@+id/btFacil"
+            android:layout_width="140px"
+            android:layout_height="40px"
+            android:layout_below="@+id/textView1"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="36dp"
+            android:background="@drawable/boton3"
+            android:text="Fácil" />
+
+        <Button
             android:id="@+id/btIntermedio"
             android:layout_width="140px"
-            android:layout_height="50px"
+            android:layout_height="40px"
             android:layout_alignLeft="@+id/btFacil"
             android:layout_below="@+id/btFacil"
-            android:layout_marginTop="29dp"
+            android:layout_marginTop="21dp"
             android:background="@drawable/boton3"
             android:text="Intermedio" />
 
         <Button
             android:id="@+id/btDificil"
             android:layout_width="140px"
-            android:layout_height="50px"
+            android:layout_height="40px"
             android:layout_alignLeft="@+id/btIntermedio"
             android:layout_below="@+id/btIntermedio"
-            android:layout_marginTop="31dp"
+            android:layout_marginTop="21dp"
             android:background="@drawable/boton3"
             android:text="Difícil" />
-
-        <Button
-            android:id="@+id/btPersonalizado"
-            android:layout_width="140px"
-            android:layout_height="50px"
-            android:layout_alignLeft="@+id/btDificil"
-            android:layout_below="@+id/btDificil"
-            android:layout_marginTop="33dp"
-            android:background="@drawable/boton3"
-            android:text="Personalizado" />
 
     </RelativeLayout>
 
