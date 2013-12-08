@@ -13,6 +13,7 @@ import android.content.res.AssetManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
+import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.media.AudioManager;
@@ -69,7 +70,7 @@ public class Pantalla_facil extends Activity implements OnTouchListener,
 		reiniciar = (View) findViewById(R.id.button1);
 		config = (View) findViewById(R.id.button2);
 		crono = (Chronometer) findViewById(R.id.crono);
-		inicio=(Button) findViewById(R.id.bthome);
+		inicio = (Button) findViewById(R.id.bthome);
 
 		LinearLayout layout = (LinearLayout) findViewById(R.id.tableroG);
 		tabla = new Tablero(this);
@@ -131,7 +132,7 @@ public class Pantalla_facil extends Activity implements OnTouchListener,
 	@Override
 	public boolean onTouch(View v, MotionEvent event) {
 		AssetFileDescriptor descriptor;
-		
+
 		if (event.getAction() == MotionEvent.ACTION_DOWN) {
 			if (activo) {
 				if (estado == "inactivo") {
@@ -166,7 +167,7 @@ public class Pantalla_facil extends Activity implements OnTouchListener,
 										Destaparbombas(cor_Bom);
 										crono.stop();
 										estado = "inactivo";
-										
+
 										AssetManager manager = this.getAssets();
 										player = new MediaPlayer();
 										try {
@@ -335,6 +336,7 @@ public class Pantalla_facil extends Activity implements OnTouchListener,
 
 		protected void onDraw(Canvas canvas) {
 			canvas.drawRGB(20, 0, 0);
+			Bitmap rz0, rz1, rzflag, rzmin;
 			Bitmap bmp = BitmapFactory.decodeResource(getResources(),
 					R.drawable.ficha);
 			Bitmap bmp0 = BitmapFactory.decodeResource(getResources(),
@@ -348,6 +350,7 @@ public class Pantalla_facil extends Activity implements OnTouchListener,
 					CONTEXT_IGNORE_SECURITY, 10, 10);
 
 			int ancho = 0, medio, medio2;
+			
 			if (canvas.getWidth() < canvas.getHeight()) {
 				ancho = tabla.getWidth();
 				ancho2 = ancho;
@@ -373,22 +376,28 @@ public class Pantalla_facil extends Activity implements OnTouchListener,
 			Coordenada pintarnume;
 			int filaact = 0;
 			//
-
+			
+			rz0=resizeImage(R.drawable.ficha0, anchocua, anchocua);
+			rz1=resizeImage(R.drawable.ficha, anchocua, anchocua);
+			rzflag=resizeImage(R.drawable.fichaflag, anchocua, anchocua);
+			rzmin=resizeImage(R.drawable.fichamina, anchocua, anchocua);
+			
+			
 			for (int f = 0; f < 8; f++) {
 				for (int c = 0; c < 8; c++) {
 					casillas[f][c].fijarxy(c * anchocua + medio, filaact
 							+ medio2, anchocua);
 					if (casillas[f][c].destapado == false)
 						if (casillas[f][c].conBandera == true) {
-
-							canvas.drawBitmap(bandera, c * anchocua + medio,
+						
+							canvas.drawBitmap(rzflag, c * anchocua + medio,
 									filaact + medio2, null);
 						} else {
-							canvas.drawBitmap(bmp0, c * anchocua + medio,
+							canvas.drawBitmap(rz0, c * anchocua + medio,
 									filaact + medio2, null);
 						}
 					else
-						canvas.drawBitmap(bmp, c * anchocua + medio, filaact
+						canvas.drawBitmap(rz1, c * anchocua + medio, filaact
 								+ medio2, null);
 
 					// linea blanca
@@ -424,7 +433,7 @@ public class Pantalla_facil extends Activity implements OnTouchListener,
 					if (casillas[f][c].contenido == 9
 							&& casillas[f][c].destapado) {
 						Paint bomba = new Paint();
-						canvas.drawBitmap(bmpmin, c * anchocua + medio, filaact
+						canvas.drawBitmap(rzmin, c * anchocua + medio, filaact
 								+ medio2, bomba);
 					}
 
@@ -615,6 +624,38 @@ public class Pantalla_facil extends Activity implements OnTouchListener,
 		}
 	}
 
+	public Bitmap resizeImage(int resId, int w, int h) {
+
+		// load the original Bitmap
+		Bitmap BitmapOrg = BitmapFactory.decodeResource(getResources(),
+				resId);
+
+		int width = BitmapOrg.getWidth();
+		int height = BitmapOrg.getHeight();
+		int newWidth = w;
+		int newHeight = h;
+
+		// calculate the scale
+		float scaleWidth = ((float) newWidth) / width;
+		float scaleHeight = ((float) newHeight) / height;
+
+		// create a matrix for the manipulation
+		Matrix matrix = new Matrix();
+		// resize the Bitmap
+		matrix.postScale(scaleWidth, scaleHeight);
+		// if you want to rotate the Bitmap
+		// matrix.postRotate(45);
+
+		// recreate the new Bitmap
+		Bitmap resizedBitmap = Bitmap.createBitmap(BitmapOrg, 0, 0, width,
+				height, matrix, true);
+
+		// make a Drawable from Bitmap to allow to set the Bitmap
+		// to the ImageView, ImageButton or what ever
+		return resizedBitmap;
+
+	}
+
 	@Override
 	public void onCompletion(MediaPlayer arg0) {
 		// TODO Auto-generated method stub
@@ -625,9 +666,9 @@ public class Pantalla_facil extends Activity implements OnTouchListener,
 	@Override
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
-	
+
 		Intent inicio = new Intent(this, MainActivity.class);
 		startActivity(inicio);
-		
+
 	}
 }
