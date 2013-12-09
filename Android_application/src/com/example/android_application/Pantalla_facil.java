@@ -36,6 +36,7 @@ import android.widget.Chronometer;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class Pantalla_facil extends Activity implements OnTouchListener,
@@ -55,7 +56,10 @@ public class Pantalla_facil extends Activity implements OnTouchListener,
 	MediaPlayer player;
 	String estado = "inactivo";
 	String chronoText;
-	int anchos, ancho2;
+    int anchos,ancho2,anchocua,bombas,Filas,columnas;
+    int valor,conbanderas=0;
+    TextView ba;
+    String nivel;
 
 	//
 
@@ -73,7 +77,7 @@ public class Pantalla_facil extends Activity implements OnTouchListener,
 		inicio = (Button) findViewById(R.id.bthome);
 
 		LinearLayout layout = (LinearLayout) findViewById(R.id.tableroG);
-		tabla = new Tablero(this);
+		tabla = new Tablero(this,"Facil",null);
 		tabla.setOnTouchListener(this);
 		tabla.setOnDragListener(this);
 		inicio.setOnClickListener(this);
@@ -81,13 +85,6 @@ public class Pantalla_facil extends Activity implements OnTouchListener,
 		base = new Base_dedatosdel_jugador(this, "DBUsuarios", null, 1);
 
 		layout.addView(tabla);
-		casillas = new Casilla[8][8];
-		for (int f = 0; f < 8; f++) {
-			for (int c = 0; c < 8; c++) {
-				casillas[f][c] = new Casilla();
-			}
-		}
-
 		flag = (ImageView) findViewById(R.id.flag);
 		// set touch listeners
 		flag.setOnTouchListener(new ChoiceTouchListener());
@@ -114,9 +111,9 @@ public class Pantalla_facil extends Activity implements OnTouchListener,
 	}
 
 	public void presionado(View v) {
-		casillas = new Casilla[8][8];
-		for (int f = 0; f < 8; f++) {
-			for (int c = 0; c < 8; c++) {
+		casillas=new Casilla[Filas][columnas];
+		for (int f = 0; f < Filas; f++) {
+			for (int c = 0; c < columnas; c++) {
 				casillas[f][c] = new Casilla();
 			}
 		}
@@ -127,6 +124,9 @@ public class Pantalla_facil extends Activity implements OnTouchListener,
 		crono.setBase(SystemClock.elapsedRealtime());
 		estado = "inactivo";
 		tabla.invalidate();
+		conbanderas=0;
+		ba.setText(String.valueOf(conbanderas));
+		
 	}
 
 	@Override
@@ -154,12 +154,11 @@ public class Pantalla_facil extends Activity implements OnTouchListener,
 								} else {
 									if (primerintento == 0) {
 										primera = new Coordenada(f, c);
-										cor_Bom = this.disponerBombas(primera);
+										cor_Bom = this.disponerBombas(primera,bombas);
 										this.contarBombasPerimetro(cor_Bom);
 
 										primerintento = 1;
-										reiniciar
-												.setBackgroundResource(R.drawable.carasorpresa);
+										reiniciar.setBackgroundResource(R.drawable.carasorpresa);
 									}
 									casillas[f][c].destapado = true;
 
@@ -171,11 +170,9 @@ public class Pantalla_facil extends Activity implements OnTouchListener,
 										AssetManager manager = this.getAssets();
 										player = new MediaPlayer();
 										try {
-											descriptor = manager
-													.openFd("bombaExplosion.mp3");
+											descriptor = manager.openFd("bombaExplosion.mp3");
 											player.setDataSource(
-													descriptor
-															.getFileDescriptor(),
+													descriptor.getFileDescriptor(),
 													descriptor.getStartOffset(),
 													descriptor.getLength());
 											player.prepare();
@@ -189,9 +186,7 @@ public class Pantalla_facil extends Activity implements OnTouchListener,
 
 										Toast.makeText(
 												this,
-												"LOSER........PERDISTES    "
-														+ anchos + "  "
-														+ ancho2,
+												"LOSER........PERDISTES    ",
 												Toast.LENGTH_LONG).show();
 										activo = false;
 										reiniciar
@@ -207,7 +202,7 @@ public class Pantalla_facil extends Activity implements OnTouchListener,
 					}
 				}
 			}
-			if (gano() && activo) {
+			if (gano(Filas, columnas,bombas) && activo) {
 				Toast.makeText(this, "Ganaste", Toast.LENGTH_LONG).show();
 
 				crono.stop();
@@ -280,6 +275,8 @@ public class Pantalla_facil extends Activity implements OnTouchListener,
 								if (casillas[f][c].destapado == false
 										&& casillas[f][c].conBandera == false) {
 									casillas[f][c].conBandera = true;
+									conbanderas++;
+									ba.setText(String.valueOf(conbanderas));
 									tabla.invalidate();
 								}
 							}
@@ -329,14 +326,69 @@ public class Pantalla_facil extends Activity implements OnTouchListener,
 	}
 
 	class Tablero extends View {
-
-		public Tablero(Context context) {
+	int Divisor,Divisor2;
+		public Tablero(Context context,String Nivel, LinkedList<Integer> datos) {
 			super(context);
+			if(Nivel.equals("Facil")){
+				Filas=8;
+				columnas=8;
+				Divisor=10;
+				Divisor2=10;
+				bombas=10;
+				
+			}
+			if(Nivel.equals("Medio")){
+				Filas=16;
+				columnas=16;
+				Divisor=10;
+				Divisor2=10;
+				bombas=40;
+			}
+			if(Nivel.equals("Dificil")){
+				Filas=32;
+				columnas=16;
+				Divisor=32;
+				Divisor2=16;
+				bombas=99;
+			}
+			if(Nivel.equals("Personalizado")){
+				Filas=8;
+				columnas=8;
+				Divisor=10;
+			}
+			casillas=new Casilla[Filas][columnas];
+			for (int f = 0; f < Filas; f++) {
+				for (int c = 0; c < columnas; c++) {
+					casillas[f][c] = new Casilla();
+				}
+			}
 		}
 
 		protected void onDraw(Canvas canvas) {
 			canvas.drawRGB(20, 0, 0);
+            int medio,medio2;
+		
+			if (canvas.getWidth() < canvas.getHeight()){
+				
+				if(Filas > columnas)
+			    anchocua = tabla.getHeight()/Divisor;
+				else  anchocua = tabla.getWidth()/Divisor2;
+				
+			     medio=(tabla.getWidth()/2)-((columnas/2)*anchocua);
+			     medio2=(tabla.getHeight()/2)-((Filas/2)*anchocua);
+				
+			}
+			else{
+				if(Filas > columnas)
+				    anchocua = tabla.getWidth()/Divisor;
+					else  anchocua = tabla.getHeight()/Divisor2;
+			
+		    medio=(tabla.getWidth()/2)-((columnas/2)*anchocua);
+		    medio2=(tabla.getHeight()/2)-((Filas/2)*anchocua);
+		    }
 			Bitmap rz0, rz1, rzflag, rzmin;
+			Bitmap bandera1 = BitmapFactory.decodeResource(getResources(),R.drawable.fichaflag);
+			flag.setImageBitmap(redimensionarImagenMaximo(bandera1, anchocua,anchocua));
 			Bitmap bmp = BitmapFactory.decodeResource(getResources(),
 					R.drawable.ficha);
 			Bitmap bmp0 = BitmapFactory.decodeResource(getResources(),
@@ -346,31 +398,22 @@ public class Pantalla_facil extends Activity implements OnTouchListener,
 
 			Bitmap bandera = BitmapFactory.decodeResource(getResources(),
 					R.drawable.fichaflag);
-			bandera.createBitmap(bandera, CONTEXT_INCLUDE_CODE,
+			bmp=redimensionarImagenMaximo(bmp, anchocua, anchocua);
+			bmp0=redimensionarImagenMaximo(bmp0, anchocua, anchocua);
+			bmpmin=redimensionarImagenMaximo(bmpmin, anchocua, anchocua);
+			bandera=redimensionarImagenMaximo(bandera, anchocua, anchocua);
+
+				bandera.createBitmap(bandera, CONTEXT_INCLUDE_CODE,
 					CONTEXT_IGNORE_SECURITY, 10, 10);
 
-			int ancho = 0, medio, medio2;
-			
-			if (canvas.getWidth() < canvas.getHeight()) {
-				ancho = tabla.getWidth();
-				ancho2 = ancho;
-				anchos = tabla.getHeight();
-				medio = (ancho / 2) - (4 * ancho / 10);
-				medio2 = (anchos / 2) - (4 * ancho / 10);
-			} else {
-				ancho = tabla.getHeight();
-				ancho2 = ancho;
-				anchos = tabla.getWidth();
-				medio2 = (ancho / 2) - (4 * ancho / 10);
-				medio = (anchos / 2) - (4 * ancho / 10);
-			}
-			int anchocua = ancho / 10;
 			Paint paint = new Paint();
-			paint.setTextSize(20);
+			paint.setTextSize(anchocua);
 			Paint paint2 = new Paint();
-			paint2.setTextSize(20);
+			paint2.setTextSize(anchocua);
 			paint2.setTypeface(Typeface.DEFAULT_BOLD);
-
+			Paint X=new Paint();
+			X.setTextSize(anchocua);
+			X.setTypeface(Typeface.DEFAULT_BOLD);
 			Paint paintlinea1 = new Paint();
 			paintlinea1.setARGB(255, 100, 255, 255);
 			Coordenada pintarnume;
@@ -383,74 +426,95 @@ public class Pantalla_facil extends Activity implements OnTouchListener,
 			rzmin=resizeImage(R.drawable.fichamina, anchocua, anchocua);
 			
 			
-			for (int f = 0; f < 8; f++) {
-				for (int c = 0; c < 8; c++) {
-					casillas[f][c].fijarxy(c * anchocua + medio, filaact
-							+ medio2, anchocua);
+			for (int f = 0; f < Filas; f++) {
+				for (int c = 0; c < columnas; c++) {
+					casillas[f][c]
+							.fijarxy(c * anchocua+medio, filaact + medio2, anchocua);
 					if (casillas[f][c].destapado == false)
 						if (casillas[f][c].conBandera == true) {
-						
-							canvas.drawBitmap(rzflag, c * anchocua + medio,
-									filaact + medio2, null);
+							
+				
+							canvas.drawBitmap(bandera, c * anchocua + medio,
+									filaact +medio2, null);
 						} else {
-							canvas.drawBitmap(rz0, c * anchocua + medio,
+							canvas.drawBitmap(bmp0, c * anchocua + medio,
 									filaact + medio2, null);
 						}
 					else
-						canvas.drawBitmap(rz1, c * anchocua + medio, filaact
-								+ medio2, null);
+						canvas.drawBitmap(bmp, c * anchocua + medio,
+								filaact + medio2, null);
 
 					// linea blanca
-					canvas.drawLine(c * anchocua + medio, filaact + medio2, c
-							* anchocua + anchocua + medio, filaact + medio2,
-							paintlinea1);
-					canvas.drawLine(c * anchocua + anchocua + medio, filaact
-							+ medio2, c * anchocua + anchocua + medio, filaact
-							+ anchocua + medio2, paintlinea1);
-					if (f == 7) {
-						canvas.drawLine(c * anchocua + medio, filaact + medio2
-								+ anchocua, c * anchocua + anchocua + medio,
-								filaact + medio2 + anchocua, paintlinea1);
-
-					}
-					if (c == 0) {
-						canvas.drawLine(c * anchocua + medio, filaact + medio2,
-								c * anchocua + medio, filaact + anchocua
-										+ medio2, paintlinea1);
-					}
+					canvas.drawLine(c * anchocua+medio, filaact +medio2, c * anchocua
+							+ anchocua+medio, filaact + medio2, paintlinea1);
+					canvas.drawLine(c * anchocua + anchocua +medio, filaact + medio2,
+							c * anchocua + anchocua +medio, filaact + anchocua
+									+ medio2, paintlinea1);
+					if(f==(Filas-1)){
+ 						canvas.drawLine(c * anchocua+medio, filaact+medio2+anchocua, c * anchocua
+     							+ anchocua+medio, filaact+medio2+anchocua, paintlinea1);
+ 					
+ 					}
+ 					if(c==0){
+ 						canvas.drawLine(c * anchocua +medio, filaact+medio2, c
+     							* anchocua  +medio, filaact + anchocua+medio2,
+     							paintlinea1);
+ 					}
+					
 
 					pintarnume = new Coordenada(f, c);
+					
+					  if (casillas[f][c].contenido >= 1
+                              && casillas[f][c].contenido <= 8
+                              && casillas[f][c].destapado){
+                      colornumeros(paint2, pintarnume);
+                      canvas.drawText(
+                                      String.valueOf(casillas[f][c].contenido), c
+                                                      * anchocua + (anchocua / 3)+medio,
+                                      filaact + medio2+(anchocua/3)+(anchocua/2), paint2);
+              }
+					  if (casillas[f][c].contenido == 9
+                              && casillas[f][c].destapado) {
+              	Paint bomba = new Paint();
+					canvas.drawBitmap(bmpmin,c * anchocua+medio ,filaact+medio2,bomba);    }
+					  if (casillas[f][c].contenido == 10
+                              && casillas[f][c].destapado) {
+              	
+              	 colornumeros(X, pintarnume);
+					canvas.drawText("X",c
+                            * anchocua +(anchocua/4)+medio,
+            filaact + medio2+(anchocua/3)+(anchocua/2),X);    }
 
-					if (casillas[f][c].contenido >= 1
-							&& casillas[f][c].contenido <= 8
-							&& casillas[f][c].destapado) {
-						colornumeros(paint2, pintarnume);
-						canvas.drawText(
-								String.valueOf(casillas[f][c].contenido), c
-										* anchocua + (anchocua / 2) + medio,
-								filaact + medio2 + anchocua / 2, paint2);
-					}
-					if (casillas[f][c].contenido == 9
-							&& casillas[f][c].destapado) {
-						Paint bomba = new Paint();
-						canvas.drawBitmap(rzmin, c * anchocua + medio, filaact
-								+ medio2, bomba);
-					}
 
 				}
+				
 				filaact = filaact + anchocua;
 			}
 
 		}
 	}
+	
+	public Bitmap redimensionarImagenMaximo(Bitmap mBitmap, float newWidth, float newHeigth){
+		   //Redimensionamos
+		   int width = mBitmap.getWidth();
+		   int height = mBitmap.getHeight();
+		   float scaleWidth = ((float) newWidth) / width;
+		   float scaleHeight = ((float) newHeigth) / height;
+		   // create a matrix for the manipulation
+		   Matrix matrix = new Matrix();
+		   // resize the bit map
+		   matrix.postScale(scaleWidth, scaleHeight);
+		   // recreate the new Bitmap
+		   return Bitmap.createBitmap(mBitmap, 0, 0, width, height, matrix, false);
+		}
 
-	private LinkedList<Coordenada> disponerBombas(Coordenada primerinten) {
-		int cantidad = 8;
+	private LinkedList<Coordenada> disponerBombas(Coordenada primerinten,int bombas ) {
+		int cantidad = bombas;
 		LinkedList<Coordenada> lista = new LinkedList<Coordenada>();
 		Coordenada cor;
 		do {
-			int fila = (int) (Math.random() * 8);
-			int columna = (int) (Math.random() * 8);
+			int fila = (int) (Math.random() * Filas);
+			int columna = (int) (Math.random() * columnas);
 			if (casillas[fila][columna].contenido == 0
 					&& !casillas[primerinten.x][primerinten.y]
 							.equals(casillas[fila][columna])) {
@@ -463,13 +527,16 @@ public class Pantalla_facil extends Activity implements OnTouchListener,
 		return lista;
 	}
 
-	private boolean gano() {
+	public boolean gano(int Filas, int columnas,int bombas) {
 		int cant = 0;
-		for (int f = 0; f < 8; f++)
-			for (int c = 0; c < 8; c++)
-				if (casillas[f][c].destapado)
-					cant++;
-		if (cant == 56)
+		
+		valor=Filas*columnas-bombas;
+		for (int f = 0; f < Filas; f++){
+			for (int c = 0; c < columnas; c++){
+				if (casillas[f][c].destapado) cant=cant+1;
+			}
+		}
+		if (cant == valor)
 			return true;
 		else
 			return false;
@@ -513,6 +580,7 @@ public class Pantalla_facil extends Activity implements OnTouchListener,
 			casillas[x][y].destapado = true;
 		}
 	}
+
 
 	void numeroAlrededorBomba(int fila, int columna) {
 		if (fila - 1 >= 0 && columna - 1 >= 0) {
