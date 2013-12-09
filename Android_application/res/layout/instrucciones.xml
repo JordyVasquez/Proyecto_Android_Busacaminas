@@ -34,7 +34,8 @@ Se puede poner una bandera en las casillas donde el jugador piensa que hay minas
 El juego también posee un sistema de récords para cada nivel en el que se indica el menor tiempo en terminar el juego. Los niveles son:\n
 Nivel principiante: 8 × 8 casillas y 10 minas.\n
 Nivel intermedio: 16 × 16 casillas y 40 minas.\n
-Nivel experto: 16 × 30 casillas y 99 minas.\n"
+Nivel experto: 16 × 30 casillas y 99 minas.\n
+Nivel personalizado: A elección del usuario, el mismo podrá poner el número de casillas tanto en filas como el columnas N*M. Además podrá poner el número de bombas que desee.\n"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textSize="15sp"
         android:textStyle="bold"

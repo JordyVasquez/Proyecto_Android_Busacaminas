@@ -29,7 +29,7 @@
         <Button
             android:id="@+id/volver"
             style="?android:attr/buttonStyleSmall"
-            android:layout_width="70dp"
+            android:layout_width="65dp"
             android:layout_height="50px"
             android:layout_alignParentTop="true"
             android:layout_toLeftOf="@+id/selectnivel"

@@ -98,6 +98,7 @@ public class Pantalla_facil extends Activity implements OnTouchListener,
 		flag = (ImageView) findViewById(R.id.flag);
 		// set touch listeners
 		flag.setOnTouchListener(new ChoiceTouchListener());
+		
 
 	}
 
@@ -320,7 +321,7 @@ public class Pantalla_facil extends Activity implements OnTouchListener,
 														// bandera
 								if (casillas[f][c].destapado == false
 										&& casillas[f][c].conBandera == false
-										&& conbanderas <= bombas) {
+										&& conbanderas < bombas) {
 									casillas[f][c].conBandera = true;
 									conbanderas++;
 									ba.setText(String.valueOf(conbanderas));
@@ -550,7 +551,9 @@ public class Pantalla_facil extends Activity implements OnTouchListener,
 		// resize the bit map
 		matrix.postScale(scaleWidth, scaleHeight);
 		// recreate the new Bitmap
+		
 		return Bitmap.createBitmap(mBitmap, 0, 0, width, height, matrix, false);
+		
 	}
 
 	
