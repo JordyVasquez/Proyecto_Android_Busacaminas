@@ -29,6 +29,8 @@ import android.view.View.DragShadowBuilder;
 import android.view.View.OnClickListener;
 import android.view.View.OnDragListener;
 import android.view.View.OnTouchListener;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -45,14 +47,22 @@ public class Pantalla_facil extends Activity implements OnTouchListener,
 	private Casilla[][] casillas;
 	int x, y, primerintento = 0;
 	LinkedList<Coordenada> cor_Bom;
+<<<<<<< HEAD
+	View reiniciar,config,btmas,btmenos,inicio;
+=======
 	View reiniciar, config;
+>>>>>>> 7d0fcd708ed9d70c0af6f879fd32cd2838609052
 	Coordenada primera;
 	Base_dedatosdel_jugador base;
 	private boolean activo = true;
 	private boolean moviendoBan = false;
 	ImageView flag;
 	Chronometer crono;
+<<<<<<< HEAD
+	
+=======
 	Button inicio;
+>>>>>>> 7d0fcd708ed9d70c0af6f879fd32cd2838609052
 	MediaPlayer player;
 	String estado = "inactivo";
 	String chronoText;
@@ -74,9 +84,22 @@ public class Pantalla_facil extends Activity implements OnTouchListener,
 		setVolumeControlStream(AudioManager.STREAM_MUSIC);
 		String variable_nivel = getIntent().getStringExtra("Nivel_juego");
 		reiniciar = (View) findViewById(R.id.button1);
+<<<<<<< HEAD
+		
+		
+		btmas=(View) findViewById(R.id.btmas);
+		btmenos=(View) findViewById(R.id.btmenos);
+		btmas.setOnClickListener(this);	
+		btmenos.setOnClickListener(this);	
+		
+		
+		crono = (Chronometer) findViewById(R.id.crono);
+		inicio = (View) findViewById(R.id.bthome);
+=======
 		config = (View) findViewById(R.id.button2);
 		crono = (Chronometer) findViewById(R.id.crono);
 		inicio = (Button) findViewById(R.id.bthome);
+>>>>>>> 7d0fcd708ed9d70c0af6f879fd32cd2838609052
 	    ba=(TextView)findViewById(R.id.NUMERObanderas);
 		LinearLayout layout = (LinearLayout) findViewById(R.id.tableroG);
 		tabla = new Tablero(this,variable_nivel,null);
@@ -131,6 +154,36 @@ public class Pantalla_facil extends Activity implements OnTouchListener,
 		ba.setText(String.valueOf(conbanderas));
 		
 	}
+	
+	@Override
+	public void onClick(View v) {
+		// TODO Auto-generated method stub
+		
+		switch(v.getId()){
+		
+		case R.id.btmas:
+			Animation anim=AnimationUtils.loadAnimation(this, R.anim.zoom);
+			anim.reset();
+			tabla.startAnimation(anim);
+			
+			break;
+			
+		case R.id.btmenos:
+			Animation animout=AnimationUtils.loadAnimation(this, R.anim.zoomout);
+			animout.reset();
+			tabla.startAnimation(animout);
+			
+			break;
+			
+		case R.id.bthome:
+			Intent volverMenu = new Intent(this,MainActivity.class);
+			startActivity(volverMenu);			
+			break;
+		
+		}
+		
+	}
+	
 
 	@Override
 	public boolean onTouch(View v, MotionEvent event) {
@@ -732,6 +785,9 @@ public class Pantalla_facil extends Activity implements OnTouchListener,
 
 	}
 
+<<<<<<< HEAD
+	
+=======
 	@Override
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
@@ -740,4 +796,5 @@ public class Pantalla_facil extends Activity implements OnTouchListener,
 		startActivity(inicio);
 
 	}
+>>>>>>> 7d0fcd708ed9d70c0af6f879fd32cd2838609052
 }
