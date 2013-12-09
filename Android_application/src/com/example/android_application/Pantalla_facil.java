@@ -75,7 +75,7 @@ public class Pantalla_facil extends Activity implements OnTouchListener,
 		config = (View) findViewById(R.id.button2);
 		crono = (Chronometer) findViewById(R.id.crono);
 		inicio = (Button) findViewById(R.id.bthome);
-
+	    ba=(TextView)findViewById(R.id.NUMERObanderas);
 		LinearLayout layout = (LinearLayout) findViewById(R.id.tableroG);
 		tabla = new Tablero(this,"Facil",null);
 		tabla.setOnTouchListener(this);
@@ -117,6 +117,7 @@ public class Pantalla_facil extends Activity implements OnTouchListener,
 				casillas[f][c] = new Casilla();
 			}
 		}
+		flag = (ImageView) findViewById(R.id.flag);
 		primerintento = 0;
 		activo = true;
 		reiniciar.setBackgroundResource(R.drawable.carafeliz);
@@ -163,7 +164,7 @@ public class Pantalla_facil extends Activity implements OnTouchListener,
 									casillas[f][c].destapado = true;
 
 									if (casillas[f][c].contenido == 9) {
-										Destaparbombas(cor_Bom);
+										Destaparbombas(Filas,columnas);
 										crono.stop();
 										estado = "inactivo";
 
@@ -273,7 +274,7 @@ public class Pantalla_facil extends Activity implements OnTouchListener,
 														// intento coloca la
 														// bandera
 								if (casillas[f][c].destapado == false
-										&& casillas[f][c].conBandera == false) {
+										&& casillas[f][c].conBandera == false && conbanderas<=bombas) {
 									casillas[f][c].conBandera = true;
 									conbanderas++;
 									ba.setText(String.valueOf(conbanderas));
@@ -386,7 +387,7 @@ public class Pantalla_facil extends Activity implements OnTouchListener,
 		    medio=(tabla.getWidth()/2)-((columnas/2)*anchocua);
 		    medio2=(tabla.getHeight()/2)-((Filas/2)*anchocua);
 		    }
-			Bitmap rz0, rz1, rzflag, rzmin;
+			ba.setText(String.valueOf(conbanderas));
 			Bitmap bandera1 = BitmapFactory.decodeResource(getResources(),R.drawable.fichaflag);
 			flag.setImageBitmap(redimensionarImagenMaximo(bandera1, anchocua,anchocua));
 			Bitmap bmp = BitmapFactory.decodeResource(getResources(),
@@ -403,9 +404,6 @@ public class Pantalla_facil extends Activity implements OnTouchListener,
 			bmpmin=redimensionarImagenMaximo(bmpmin, anchocua, anchocua);
 			bandera=redimensionarImagenMaximo(bandera, anchocua, anchocua);
 
-				bandera.createBitmap(bandera, CONTEXT_INCLUDE_CODE,
-					CONTEXT_IGNORE_SECURITY, 10, 10);
-
 			Paint paint = new Paint();
 			paint.setTextSize(anchocua);
 			Paint paint2 = new Paint();
@@ -420,20 +418,12 @@ public class Pantalla_facil extends Activity implements OnTouchListener,
 			int filaact = 0;
 			//
 			
-			rz0=resizeImage(R.drawable.ficha0, anchocua, anchocua);
-			rz1=resizeImage(R.drawable.ficha, anchocua, anchocua);
-			rzflag=resizeImage(R.drawable.fichaflag, anchocua, anchocua);
-			rzmin=resizeImage(R.drawable.fichamina, anchocua, anchocua);
-			
 			
 			for (int f = 0; f < Filas; f++) {
 				for (int c = 0; c < columnas; c++) {
-					casillas[f][c]
-							.fijarxy(c * anchocua+medio, filaact + medio2, anchocua);
+					casillas[f][c].fijarxy(c * anchocua+medio, filaact + medio2, anchocua);
 					if (casillas[f][c].destapado == false)
 						if (casillas[f][c].conBandera == true) {
-							
-				
 							canvas.drawBitmap(bandera, c * anchocua + medio,
 									filaact +medio2, null);
 						} else {
@@ -482,7 +472,7 @@ public class Pantalla_facil extends Activity implements OnTouchListener,
               	
               	 colornumeros(X, pintarnume);
 					canvas.drawText("X",c
-                            * anchocua +(anchocua/4)+medio,
+                            * anchocua +(anchocua/5)+medio,
             filaact + medio2+(anchocua/3)+(anchocua/2),X);    }
 
 
@@ -569,15 +559,24 @@ public class Pantalla_facil extends Activity implements OnTouchListener,
 			pa.setARGB(200, 100, 0, 200);
 		if (casillas[cor.x][cor.y].contenido == 8)
 			pa.setARGB(200, 200, 200, 200);
+		if (casillas[cor.x][cor.y].contenido == 10)
+			pa.setARGB(200, 200, 0,0);
 
 	}
 
-	private void Destaparbombas(LinkedList<Coordenada> Cordenadas) {
-		for (int f = 0; f < Cordenadas.size(); f++) {
-			int x = Cordenadas.get(f).x;
-			int y = Cordenadas.get(f).y;
 
-			casillas[x][y].destapado = true;
+	private void Destaparbombas(int fi,int co) {
+		for (int f = 0; f < fi; f++) {
+			for (int c = 0; c < co; c++) {
+			if(casillas[f][c].conBandera==false && casillas[f][c].contenido==9)
+			casillas[f][c].destapado = true;
+				if(casillas[f][c].conBandera==true && !(casillas[f][c].contenido==9)){
+					casillas[f][c].contenido =10;
+					casillas[f][c].conBandera=false;
+					casillas[f][c].destapado = true;
+					
+				}
+			}
 		}
 	}
 
@@ -676,7 +675,7 @@ public class Pantalla_facil extends Activity implements OnTouchListener,
 			if (casillas[fil][col].conBandera == false) {
 				if (casillas[fil][col].contenido == 0) {
 					casillas[fil][col].destapado = true;
-					casillas[fil][col].contenido = 10;
+					casillas[fil][col].contenido = 15;
 					recorrer(fil, col + 1);
 					recorrer(fil, col - 1);
 					recorrer(fil + 1, col);

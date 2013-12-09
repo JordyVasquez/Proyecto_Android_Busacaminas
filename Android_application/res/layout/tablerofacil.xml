@@ -24,7 +24,8 @@
         android:layout_marginLeft="45dp"
         android:layout_toRightOf="@+id/button1"
         android:text="Chronometer" />
-
+    
+    
     <Button
         android:id="@+id/button1"
         android:layout_width="55dp"
@@ -35,15 +36,6 @@
         android:onClick="presionado"
         android:text="@string/vacio" />
 
-    <ImageView
-        android:id="@+id/flag"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/button1"
-        android:layout_marginRight="21dp"
-        android:layout_toLeftOf="@+id/button1"
-        android:src="@drawable/fichaflag" />
-
     <Button
         android:id="@+id/bthome"
         style="?android:attr/buttonStyleSmall"
@@ -52,5 +44,23 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:background="@drawable/home" />
+
+    <ImageView
+        android:id="@+id/flag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/bthome"
+        android:layout_marginLeft="37dp"
+        android:layout_toRightOf="@+id/bthome"
+        android:src="@drawable/fichaflag" />
+
+    <TextView
+        android:id="@+id/NUMERObanderas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/flag"
+        android:layout_toLeftOf="@+id/button1"
+        android:text="Small Text"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
 
 </RelativeLayout>
