@@ -1,0 +1,92 @@
+
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/prueba2"
+    tools:context=".Pantalla_facil" >
+
+        
+    <LinearLayout
+        android:id="@+id/tableroG"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/button1"
+        android:layout_marginTop="18dp"
+        android:background="@drawable/gamesop"
+        android:orientation="vertical" >
+    </LinearLayout>
+   
+    <Chronometer
+        android:id="@+id/crono"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/button1"
+        android:layout_alignBottom="@+id/button1"
+        android:layout_marginLeft="45dp"
+        android:layout_toRightOf="@+id/button1"
+        android:text="Chronometer" />
+    
+    
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="55dp"
+        android:layout_height="50dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:background="@anim/custom_button"
+        android:onClick="presionado"
+        android:text="@string/vacio" />
+
+    <Button
+        android:id="@+id/bthome"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="55dp"
+        android:layout_height="45dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/home" />
+
+    <ImageView
+        android:id="@+id/flag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/bthome"
+        android:layout_marginLeft="37dp"
+        android:layout_toRightOf="@+id/bthome"
+        android:src="@drawable/fichaflag" />
+
+    <Button
+        android:id="@+id/btmas"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:text="  +  " />
+
+    <Button
+        android:id="@+id/btmenos"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:text="  -  " />
+
+    <TextView
+        android:id="@+id/NUMERObanderas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/flag"
+        android:layout_toLeftOf="@+id/button1"
+        android:text="Small Text"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+    
+    
+   
+
+</RelativeLayout>

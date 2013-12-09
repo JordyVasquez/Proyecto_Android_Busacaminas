@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/buscaminas"
+    android:gravity="center_horizontal"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/TituloReglas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="70dp"
+        android:text="INSTRUCCIONES"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="27sp"
+        android:textStyle="bold|italic" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/TituloReglas"
+        android:layout_gravity="center_horizontal|center"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="33dp"
+        android:scrollbars="vertical"
+        android:text="El juego consiste en destapar todas las casillas que no oculten una mina\n
+Algunas casillas tienen un número, este número nos indica el total de minas que se encuentran alrededor de esa casilla. Por Ej: Si una casilla tiene el número 6, significa que de las ocho casillas que hay alrededor de aquella casilla marcada (si no es en una esquina o borde) hay 6 con minas y 2 sin minas. Si se descubre una casilla sin número indica que ninguna de las casillas vecinas tiene mina y estas se descubren automáticamente.
+Si se descubre una casilla con una mina se pierde la partida.\n
+Se puede poner una bandera en las casillas donde el jugador piensa que hay minas para ayudar a descubrir aquellas minas.\n
+El juego también posee un sistema de récords para cada nivel en el que se indica el menor tiempo en terminar el juego. Los niveles son:\n
+Nivel principiante: 8 × 8 casillas y 10 minas.\n
+Nivel intermedio: 16 × 16 casillas y 40 minas.\n
+Nivel experto: 16 × 30 casillas y 99 minas.\n"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:typeface="monospace" />
+
+    <Button
+        android:id="@+id/back"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="153dp"
+        android:layout_toLeftOf="@+id/TituloReglas"
+        android:background="@drawable/home" />
+
+</RelativeLayout>

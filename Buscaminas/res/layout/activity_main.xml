@@ -1,0 +1,51 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fondo1"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".MainActivity" >
+
+    <Button
+        android:id="@+id/btInstrucciones"
+        android:layout_width="160px"
+        android:layout_height="40px"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:background="@layout/botonesusuario"
+        android:text="Instrucciones" />
+
+    <Button
+        android:id="@+id/btRecord"
+        android:layout_width="160px"
+        android:layout_height="40px"
+        android:layout_alignLeft="@+id/btExit"
+        android:layout_below="@+id/btInstrucciones"
+        android:layout_marginTop="24dp"
+        android:background="@layout/botonesusuario"
+        android:text="Record" />
+
+    <Button
+        android:id="@+id/btExit"
+        android:layout_width="160px"
+        android:layout_height="40px"
+        android:layout_alignLeft="@+id/btInstrucciones"
+        android:layout_below="@+id/btRecord"
+        android:layout_marginTop="16dp"
+        android:background="@layout/botonesusuario"
+        android:text="Exit" />
+
+    <Button
+        android:id="@+id/btStart"
+        android:layout_width="160px"
+        android:layout_height="40px"
+        android:layout_above="@+id/btInstrucciones"
+        android:layout_alignLeft="@+id/btInstrucciones"
+        android:layout_marginBottom="20dp"
+        android:background="@layout/botonesusuario"
+        android:text="Start" />
+    
+</RelativeLayout>

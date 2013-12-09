@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.android_application"
+    android:screenOrientation="portrait"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="11"
+        android:targetSdkVersion="11" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.example.android_application.MainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.example.android_application.Pantalladatosusuarios"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="com.example.android_application.Pantalladatosusuarios" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.example.android_application.Pantalla_facil"
+            android:configChanges="orientation"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="com.example.android_application.Pantalla_facil" />
+
+                <category
+                    android:name="android.intent.category.DEFAULT"
+                    android:configChanges="keyboard|keyboardHidden|orientation" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.example.android_application.Instrucciones"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="com.example.android_application.Instrucciones" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.example.android_application.Base_dedatosdel_jugador"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="com.example.android_application.Base_dedatosdel_jugador" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.example.android_application.Record"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="com.example.android_application.Record" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
