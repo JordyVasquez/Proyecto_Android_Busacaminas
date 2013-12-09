@@ -47,27 +47,20 @@ public class Pantalla_facil extends Activity implements OnTouchListener,
 	private Casilla[][] casillas;
 	int x, y, primerintento = 0;
 	LinkedList<Coordenada> cor_Bom;
-<<<<<<< HEAD
 	View reiniciar,config,btmas,btmenos,inicio;
-=======
-	View reiniciar, config;
->>>>>>> 7d0fcd708ed9d70c0af6f879fd32cd2838609052
 	Coordenada primera;
 	Base_dedatosdel_jugador base;
 	private boolean activo = true;
 	private boolean moviendoBan = false;
 	ImageView flag;
 	Chronometer crono;
-<<<<<<< HEAD
 	
-=======
-	Button inicio;
->>>>>>> 7d0fcd708ed9d70c0af6f879fd32cd2838609052
 	MediaPlayer player;
 	String estado = "inactivo";
 	String chronoText;
     int anchos,ancho2,anchocua,bombas,Filas,columnas;
-    int valor,conbanderas=0;
+    int valor;
+    int conbanderas=0;
     TextView ba;
     String nivel;
     String variable_nivel;
@@ -84,7 +77,6 @@ public class Pantalla_facil extends Activity implements OnTouchListener,
 		setVolumeControlStream(AudioManager.STREAM_MUSIC);
 		String variable_nivel = getIntent().getStringExtra("Nivel_juego");
 		reiniciar = (View) findViewById(R.id.button1);
-<<<<<<< HEAD
 		
 		
 		btmas=(View) findViewById(R.id.btmas);
@@ -95,11 +87,6 @@ public class Pantalla_facil extends Activity implements OnTouchListener,
 		
 		crono = (Chronometer) findViewById(R.id.crono);
 		inicio = (View) findViewById(R.id.bthome);
-=======
-		config = (View) findViewById(R.id.button2);
-		crono = (Chronometer) findViewById(R.id.crono);
-		inicio = (Button) findViewById(R.id.bthome);
->>>>>>> 7d0fcd708ed9d70c0af6f879fd32cd2838609052
 	    ba=(TextView)findViewById(R.id.NUMERObanderas);
 		LinearLayout layout = (LinearLayout) findViewById(R.id.tableroG);
 		tabla = new Tablero(this,variable_nivel,null);
@@ -205,6 +192,8 @@ public class Pantalla_facil extends Activity implements OnTouchListener,
 								if (casillas[f][c].conBandera) {
 									casillas[f][c].conBandera = false;
 									moviendoBan = false;
+									conbanderas--;
+									ba.setText(String.valueOf(conbanderas));
 									tabla.invalidate();
 									return true;
 								} else {
@@ -571,6 +560,7 @@ public class Pantalla_facil extends Activity implements OnTouchListener,
 		} while (cantidad != 0);
 		return lista;
 	}
+	
 
 	public boolean gano(int Filas, int columnas,int bombas) {
 		int cant = 0;
@@ -581,7 +571,7 @@ public class Pantalla_facil extends Activity implements OnTouchListener,
 				if (casillas[f][c].destapado) cant=cant+1;
 			}
 		}
-		if (cant == valor)
+		if (cant == ((Filas*columnas)-bombas))
 			return true;
 		else
 			return false;
@@ -659,7 +649,7 @@ public class Pantalla_facil extends Activity implements OnTouchListener,
 			}
 
 		}
-		if (fila - 1 >= 0 && columna + 1 < 8) {
+		if (fila - 1 >= 0 && columna + 1 < columnas) {
 			if (casillas[fila - 1][columna + 1].contenido != 9) {
 
 				if (casillas[fila - 1][columna + 1].contenido > 0
@@ -671,7 +661,7 @@ public class Pantalla_facil extends Activity implements OnTouchListener,
 
 		}
 
-		if (columna + 1 < 8) {
+		if (columna + 1 < columnas) {
 			if (casillas[fila][columna + 1].contenido != 9) {
 
 				if (casillas[fila][columna + 1].contenido > 0
@@ -681,7 +671,7 @@ public class Pantalla_facil extends Activity implements OnTouchListener,
 					casillas[fila][columna + 1].contenido = 1;
 			}
 		}
-		if (fila + 1 < 8 && columna + 1 < 8) {
+		if (fila + 1 < Filas && columna + 1 < columnas) {
 			if (casillas[fila + 1][columna + 1].contenido != 9) {
 
 				if (casillas[fila + 1][columna + 1].contenido > 0
@@ -692,7 +682,7 @@ public class Pantalla_facil extends Activity implements OnTouchListener,
 			}
 		}
 
-		if (fila + 1 < 8) {
+		if (fila + 1 < Filas) {
 			if (casillas[fila + 1][columna].contenido != 9) {
 
 				if (casillas[fila + 1][columna].contenido > 0
@@ -702,7 +692,7 @@ public class Pantalla_facil extends Activity implements OnTouchListener,
 					casillas[fila + 1][columna].contenido = 1;
 			}
 		}
-		if (fila + 1 < 8 && columna - 1 >= 0) {
+		if (fila + 1 < Filas && columna - 1 >= 0) {
 			if (casillas[fila + 1][columna - 1].contenido != 9) {
 
 				if (casillas[fila + 1][columna - 1].contenido > 0
@@ -785,16 +775,5 @@ public class Pantalla_facil extends Activity implements OnTouchListener,
 
 	}
 
-<<<<<<< HEAD
 	
-=======
-	@Override
-	public void onClick(View v) {
-		// TODO Auto-generated method stub
-
-		Intent inicio = new Intent(this, MainActivity.class);
-		startActivity(inicio);
-
-	}
->>>>>>> 7d0fcd708ed9d70c0af6f879fd32cd2838609052
 }

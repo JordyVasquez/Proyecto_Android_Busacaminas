@@ -62,7 +62,6 @@
         android:layout_toLeftOf="@+id/button1"
         android:text="Small Text"
         android:textAppearance="?android:attr/textAppearanceSmall" />
-<<<<<<< HEAD
 
     <Button
         android:id="@+id/btmas"
@@ -81,7 +80,5 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:text="  -  " />
-=======
->>>>>>> 7d0fcd708ed9d70c0af6f879fd32cd2838609052
 
 </RelativeLayout>
