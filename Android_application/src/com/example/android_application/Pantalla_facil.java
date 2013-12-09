@@ -269,8 +269,8 @@ public class Pantalla_facil extends Activity implements OnTouchListener,
 				moviendoBan = false;
 				int X = (int) event.getX();
 				int Y = (int) event.getY();
-				for (int f = 0; f < 8; f++) {
-					for (int c = 0; c < 8; c++) {
+				for (int f = 0; f < Filas; f++) {
+					for (int c = 0; c < columnas; c++) {
 						if (casillas[f][c].dentro(X, Y)) {
 							if (primerintento != 0) {// Si no es el primer
 														// intento coloca la
