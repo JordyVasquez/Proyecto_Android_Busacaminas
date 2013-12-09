@@ -25,10 +25,14 @@ public class Pantalladatosusuarios extends Activity implements OnClickListener {
 
 		setContentView(R.layout.pantalladatosusuario);
 		facil = (Button) findViewById(R.id.btFacil);
+		medio = (Button) findViewById(R.id.btIntermedio);
+		dificil = (Button) findViewById(R.id.btDificil);
 
 		volver = (Button) findViewById(R.id.volver);
 
 		facil.setOnClickListener(this);
+		medio.setOnClickListener(this);
+		dificil.setOnClickListener(this);
 		volver.setOnClickListener(this);
 
 	}
@@ -40,11 +44,25 @@ public class Pantalladatosusuarios extends Activity implements OnClickListener {
 		switch (v.getId()) {
 		case R.id.btFacil:
 
-			// Toast.makeText(this, "Ha elegio el nivel Facil",
-			// Toast.LENGTH_SHORT).show();
 			Intent llama_pantalla_facil = new Intent(
 					"com.example.android_application.Pantalla_facil");
+			llama_pantalla_facil.putExtra("Nivel_juego","Facil");
 			startActivity(llama_pantalla_facil);
+			break;
+		case R.id.btIntermedio:
+
+			Intent llama_pantalla_intermedio = new Intent(
+					"com.example.android_application.Pantalla_facil");
+			llama_pantalla_intermedio.putExtra("Nivel_juego","Medio");
+			startActivity(llama_pantalla_intermedio);
+			break;
+		case R.id.btDificil:
+
+	
+			Intent llama_pantalla_dificil = new Intent(
+					"com.example.android_application.Pantalla_facil");
+			llama_pantalla_dificil.putExtra("Nivel_juego","Dificil");
+			startActivity(llama_pantalla_dificil);
 			break;
 
 		case R.id.volver:

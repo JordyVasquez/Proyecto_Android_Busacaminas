@@ -60,6 +60,7 @@ public class Pantalla_facil extends Activity implements OnTouchListener,
     int valor,conbanderas=0;
     TextView ba;
     String nivel;
+    String variable_nivel;
 
 	//
 
@@ -71,13 +72,14 @@ public class Pantalla_facil extends Activity implements OnTouchListener,
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.tablerofacil);
 		setVolumeControlStream(AudioManager.STREAM_MUSIC);
+		String variable_nivel = getIntent().getStringExtra("Nivel_juego");
 		reiniciar = (View) findViewById(R.id.button1);
 		config = (View) findViewById(R.id.button2);
 		crono = (Chronometer) findViewById(R.id.crono);
 		inicio = (Button) findViewById(R.id.bthome);
 	    ba=(TextView)findViewById(R.id.NUMERObanderas);
 		LinearLayout layout = (LinearLayout) findViewById(R.id.tableroG);
-		tabla = new Tablero(this,"Facil",null);
+		tabla = new Tablero(this,variable_nivel,null);
 		tabla.setOnTouchListener(this);
 		tabla.setOnDragListener(this);
 		inicio.setOnClickListener(this);
@@ -143,8 +145,8 @@ public class Pantalla_facil extends Activity implements OnTouchListener,
 				}
 				int X = (int) event.getX();
 				int Y = (int) event.getY();
-				for (int f = 0; f < 8; f++) {
-					for (int c = 0; c < 8; c++) {
+				for (int f = 0; f < Filas; f++) {
+					for (int c = 0; c < columnas; c++) {
 						if (casillas[f][c].dentro(X, Y)) {
 							if (casillas[f][c].destapado == false) {
 								if (casillas[f][c].conBandera) {
@@ -341,8 +343,8 @@ public class Pantalla_facil extends Activity implements OnTouchListener,
 			if(Nivel.equals("Medio")){
 				Filas=16;
 				columnas=16;
-				Divisor=10;
-				Divisor2=10;
+				Divisor=16;
+				Divisor2=16;
 				bombas=40;
 			}
 			if(Nivel.equals("Dificil")){
@@ -671,7 +673,7 @@ public class Pantalla_facil extends Activity implements OnTouchListener,
 	}
 
 	private void recorrer(int fil, int col) {
-		if (fil >= 0 && fil < 8 && col >= 0 && col < 8) {
+		if (fil >= 0 && fil < Filas && col >= 0 && col < columnas) {
 			if (casillas[fil][col].conBandera == false) {
 				if (casillas[fil][col].contenido == 0) {
 					casillas[fil][col].destapado = true;
