@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bombs"
+    android:gravity="center_horizontal"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="315dp"
+        android:layout_weight="5.22"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="65dp"
+            android:gravity="center"
+            android:text="Escoja el nivel de dificultad"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#0000ff"
+            android:textSize="30sp"
+            android:textStyle="bold|italic" />
+
+        <Button
+            android:id="@+id/volver"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="65dp"
+            android:layout_height="50px"
+            android:layout_alignParentTop="true"
+            android:layout_toLeftOf="@+id/selectnivel"
+            android:background="@drawable/home" />
+
+        <Button
+            android:id="@+id/btPersonalizado"
+            android:layout_width="140px"
+            android:layout_height="40px"
+            android:layout_alignLeft="@+id/btDificil"
+            android:layout_below="@+id/btDificil"
+            android:layout_marginTop="22dp"
+            android:background="@drawable/boton3"
+            android:text="Personalizado" />
+
+        <Button
+            android:id="@+id/btFacil"
+            android:layout_width="140px"
+            android:layout_height="40px"
+            android:layout_below="@+id/textView1"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="36dp"
+            android:background="@drawable/boton3"
+            android:text="Fácil" />
+
+        <Button
+            android:id="@+id/btIntermedio"
+            android:layout_width="140px"
+            android:layout_height="40px"
+            android:layout_alignLeft="@+id/btFacil"
+            android:layout_below="@+id/btFacil"
+            android:layout_marginTop="21dp"
+            android:background="@drawable/boton3"
+            android:text="Intermedio" />
+
+        <Button
+            android:id="@+id/btDificil"
+            android:layout_width="140px"
+            android:layout_height="40px"
+            android:layout_alignLeft="@+id/btIntermedio"
+            android:layout_below="@+id/btIntermedio"
+            android:layout_marginTop="21dp"
+            android:background="@drawable/boton3"
+            android:text="Difícil" />
+
+    </RelativeLayout>
+
+</LinearLayout>
