@@ -1,10 +1,10 @@
 \select@language {spanish}
 \thispagestyle {empty}
-\contentsline {section}{\numberline {1}\fontsize {14}{0} \bf Introducci\IeC {\'o}n}{4}
-\contentsline {section}{\numberline {2}\fontsize {14}{0} \bf Justificaci\IeC {\'o}n}{4}
-\contentsline {section}{\numberline {3}\fontsize {14}{0} \bf Desarrollo}{4}
-\contentsline {section}{\numberline {4}\fontsize {14}{0} \bf Alcances}{4}
-\contentsline {section}{\numberline {5}\fontsize {14}{0} \bf Manual}{4}
-\contentsline {section}{\numberline {6}\fontsize {14}{0} \bf Im\IeC {\'a}genes}{5}
-\contentsline {section}{\numberline {7}\fontsize {14}{0} \bf Observaciones}{11}
-\contentsline {section}{\numberline {8}\fontsize {14}{0} \bf Conclusiones}{11}
+\contentsline {section}{\numberline {1}\fontsize {14}{0} \bf Introducci\IeC {\'o}n}{5}
+\contentsline {section}{\numberline {2}\fontsize {14}{0} \bf Justificaci\IeC {\'o}n}{5}
+\contentsline {section}{\numberline {3}\fontsize {14}{0} \bf Desarrollo}{6}
+\contentsline {section}{\numberline {4}\fontsize {14}{0} \bf Alcances}{7}
+\contentsline {section}{\numberline {5}\fontsize {14}{0} \bf Manual}{7}
+\contentsline {section}{\numberline {6}\fontsize {14}{0} \bf Im\IeC {\'a}genes}{8}
+\contentsline {section}{\numberline {7}\fontsize {14}{0} \bf Observaciones}{15}
+\contentsline {section}{\numberline {8}\fontsize {14}{0} \bf Conclusiones}{15}

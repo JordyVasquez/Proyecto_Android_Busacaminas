@@ -80,20 +80,64 @@
 
 \maketitle
 
+
+
+\newpage
+\begin{center}
+ {\fontsize{16}{0} \bf Documentación del Proyecto Buscaminas}
+\begin{figure}[h]
+\centering
+ \includegraphics[width=3cm]{./imagenes/logo.png}
+\caption{Logo de Buscaminas}\label{Fig:Logo de BuscaminasL}
+\end{figure}
+\end{center}
+
 \newpage
 \tableofcontents % No hace falta un TOC en un artículo corto
 \thispagestyle{empty}
 \addtocontents{toc}{\protect\thispagestyle{empty}}
 
 \newpage
-\begin{center}
- {\fontsize{16}{0} \bf Documentación del Proyecto Buscaminas}
-\end{center}
-
 \section{\fontsize{14}{0} \bf Introducción}
+
+En la actualidad con el desarrollo del sistema operativo android para smartphones y tabletas que convierten a tu dispositivo en un pc de bolsillo, convirtieron a este SO en uno de los más usados para lo cual es necesario que los programadores conozcan como realizar aplicaciones para dispositivos puesto que ahora muchas personas tienen un smartphone o una tablet a su disposición, lo cual es una gran oportunidad para que los programadores diseñen aplicaciones útiles para la humanidad ya sean de ocio, informativas, de negocios, etc.\\ \\
+
+
 \section{\fontsize{14}{0} \bf Justificación}
+
+En la evolución de los lenguajes tenemos los orientados a objetos fueron creados debido a la necesidad de modelar los problemas de la vida real de forma más sencilla basandose en que todo es un objeto, conocer estos y muchos otros conceptos más de programación orientada a objetos es elemental que un estudiante conozca de la materia lenguajes de programación conozca y maneje de fomra correcta cada uno de los diferentes conceptos que implica programas de esta manera. \\ \\
+
+
+Usanso el sistema operativo android  una plataforma abierta que no esta atado a un fabricante del hardware, lo que le ah permitio abrirle paso en el mercado rapidamente, se nos otorgó el objetivo de implementar un juego muy popular como es el Buscaminas en este sistema operativo para lo cual fue necesario usar conceptos orientados a objetos.\\
+
+
+\newpage
 \section{\fontsize{14}{0} \bf Desarrollo}
+Para desarrollar el proyecto buscaminas primero se necesito entender las reglas del juego, luego se procedió a pensar como sería la implementacción de los algortimos que se necestan implementar en un buscaminas.
+
+Se realizo el diagrma UML del Buscaminas con las clases que intervienen directamente con la pantalla principal del juego,para poder comenzar a escribir el codigo del proyecto. [Vease Fig 2]
+
+\begin{figure}[h]
+\centering
+ \includegraphics[width=18cm]{./imagenes/uml.png}
+\caption{Diagrama UML de Buscaminas}\label{Fig:Diagrama UML}
+\end{figure}
+
+Posterirmente primero se trabajo en los xmls diseñando las pantallas y creando los activities, luego se procedio con la creación del tablero en nivel fácil.
+
+Una vez listo el tablero se procedio a la implementación de los algoritmos y de la base de datos y finalemente se implementaron los otros niveles.
+
+\newpage
 \section{\fontsize{14}{0} \bf Alcances}
+\begin{itemize}
+\item El buscaminas tiene implementado tres diferentes niveles de juego: facil, medio, dificil
+\item Para cada nivel varian el número de casillas por lo que fue necesario hacer redimensión de las casillas siendo las casillas bitmaps
+\item Como cada dispositvo es diferente las casillas se dibujan de acuerdo a la resolución del dispositivo
+\item Se realizo zoom con zoom controllers pero no logramos colocar scroll en tal layout
+\item Se implemento una clase para que ejcute los sonidos pero esta clase hacia caer el proyecto por lo que decidimos dejarlo sin sonidos
+\item Se valido que el juego no se reinicie al girar la pantalla, pero despúes se decidio mejor dejar la pantalla estática.
+\end{itemize}
+
 \section{\fontsize{14}{0} \bf Manual}
 \begin{itemize}
  \item Este juego consiste en destapar todas las casillas que no oculten una mina.\\
@@ -141,7 +185,28 @@ Se muestra una cara feliz con gafas indicando que uno ha ganado. Además se pres
 
 \end{itemize}
 
+\newpage
 \section{\fontsize{14}{0} \bf Observaciones}
+\begin{itemize}
+
+\item Hubo mucha perdida de tiempo al ejecutar las aplicaciones en el avd, puesto que este es demasiado lento.
+\item Debido a la lentitud del avd se decidio usar un dispositivo como avd pero resulta que al ejecutar este mismo código de nuevo en el avd este se caia sin explicación evidente.
+\item El IDE Eclipse no ayuda mucho con la identificación de los errores y manejo de excepciones cuando se producen, lo que dificulta la ejecución puesto que no hay certeza de donde mismo se cayo el código
+\item La cantidad de lugares de consulta es un poco limitada debido a que android es practicamente uno de los Sistemas Operativos más joven.
+\item Muhas veces el código que uno implementa y espera que funcione con cierto comportamiento al ejecutarse no se obtiene lo esperado
+
+\end{itemize}
+
+
 \section{\fontsize{14}{0} \bf Conclusiones}
+
+\begin{itemize}
+\item Android nos proporciona un gran número de herramientas necesarias para poder programar aplicaciones para diferentes dispositivos móviles.
+\item Se puede contruir la interfaz gráfica de dos formas:  A través de código java o código xml.
+\item El buscaminas es un juego muy mecánico en el cual se requiere de un poco de suerte para poder ganar.
+\item El proyecto cumple con todas la especificaciones básicas que se requerian las especificaciones.
+\item Durante el desarrollo del proyecto nos fuimos percatando de cosas que no habiamos considerado como lo del zoom para cuando se juegue en modo dificil puesto que viendo las necesidades del usuario es casi imposible seleccionar una casilla por ser muy pequeña.
+
+\end{itemize}
 
 \end{document}

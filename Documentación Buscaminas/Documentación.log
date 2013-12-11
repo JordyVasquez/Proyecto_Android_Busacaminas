@@ -1,21 +1,23 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.10.16)  10 DEC 2013 23:32
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2013.1.12)  11 DEC 2013 08:13
 entering extended mode
 **Documentación.tex
-("C:\Users\Owner\Desktop\Documentación Buscaminas\Documentación.tex"
+
+("C:\Users\User\Documents\GitHub\Proyecto_Android_Busacaminas\Documentación Bu
+scaminas\Documentación.tex"
 LaTeX2e <2011/06/27>
 Babel <v3.8m> and hyphenation patterns for english, afrikaans, ancientgreek, ar
 abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
 croatian, czech, danish, dutch, esperanto, estonian, farsi, finnish, french, ga
-lician, german, german-x-2012-05-30, greek, gujarati, hindi, hungarian, iceland
-ic, indonesian, interlingua, irish, italian, kannada, kurmanji, latin, latvian,
- lithuanian, malayalam, marathi, mongolian, mongolianlmc, monogreek, ngerman, n
-german-x-2012-05-30, nynorsk, oriya, panjabi, pinyin, polish, portuguese, roman
-ian, russian, sanskrit, serbian, slovak, slovenian, spanish, swedish, swissgerm
-an, tamil, telugu, turkish, turkmen, ukenglish, ukrainian, uppersorbian, usengl
-ishmax, welsh, loaded.
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\article.cls"
+lician, german, german-x-2009-06-19, greek, gujarati, hindi, hungarian, iceland
+ic, indonesian, interlingua, irish, italian, kannada, kurmanji, lao, latin, lat
+vian, lithuanian, malayalam, marathi, mongolian, mongolianlmc, monogreek, ngerm
+an, ngerman-x-2009-06-19, nynorsk, oriya, panjabi, pinyin, polish, portuguese, 
+romanian, russian, sanskrit, serbian, slovak, slovenian, spanish, swedish, swis
+sgerman, tamil, telugu, turkish, turkmen, ukenglish, ukrainian, uppersorbian, u
+senglishmax, welsh, loaded.
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\article.cls"
 Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\size11.clo"
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\size11.clo"
 File: size11.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 )
 \c@part=\count79
@@ -30,19 +32,19 @@ File: size11.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 \belowcaptionskip=\skip42
 \bibindent=\dimen102
 )
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\inputenc.sty"
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\inputenc.sty"
 Package: inputenc 2008/03/30 v1.1d Input encoding file
 \inpenc@prehook=\toks14
 \inpenc@posthook=\toks15
 
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\utf8.def"
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\utf8.def"
 File: utf8.def 2008/04/05 v1.1m UTF-8 support for inputenc
 Now handling font encoding OML ...
 ... no UTF-8 mapping file for font encoding OML
 Now handling font encoding T1 ...
 ... processing UTF-8 mapping file for font encoding T1
 
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\t1enc.dfu"
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\t1enc.dfu"
 File: t1enc.dfu 2008/04/05 v1.1m UTF-8 support for inputenc
    defining Unicode char U+00A1 (decimal 161)
    defining Unicode char U+00A3 (decimal 163)
@@ -192,7 +194,7 @@ File: t1enc.dfu 2008/04/05 v1.1m UTF-8 support for inputenc
 Now handling font encoding OT1 ...
 ... processing UTF-8 mapping file for font encoding OT1
 
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\ot1enc.dfu"
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\ot1enc.dfu"
 File: ot1enc.dfu 2008/04/05 v1.1m UTF-8 support for inputenc
    defining Unicode char U+00A1 (decimal 161)
    defining Unicode char U+00A3 (decimal 163)
@@ -223,7 +225,7 @@ File: ot1enc.dfu 2008/04/05 v1.1m UTF-8 support for inputenc
 Now handling font encoding OMS ...
 ... processing UTF-8 mapping file for font encoding OMS
 
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\omsenc.dfu"
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\omsenc.dfu"
 File: omsenc.dfu 2008/04/05 v1.1m UTF-8 support for inputenc
    defining Unicode char U+00A7 (decimal 167)
    defining Unicode char U+00B6 (decimal 182)
@@ -247,22 +249,22 @@ Now handling font encoding U ...
    defining Unicode char U+2122 (decimal 8482)
    defining Unicode char U+2423 (decimal 9251)
 ))
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\geometry\geometry.sty"
+("C:\Program Files\MiKTeX 2.9\tex\latex\geometry\geometry.sty"
 Package: geometry 2010/09/12 v5.6 Page Geometry
 
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\keyval.sty"
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\keyval.sty"
 Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
 \KV@toks@=\toks16
 )
-("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\ifpdf.sty"
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ifpdf.sty"
 Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
 Package ifpdf Info: pdfTeX in PDF mode is detected.
 )
-("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\ifvtex.sty"
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ifvtex.sty"
 Package: ifvtex 2010/03/01 v1.5 Detect VTeX and its facilities (HO)
 Package ifvtex Info: VTeX not detected.
 )
-("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\ifxetex\ifxetex.sty"
+("C:\Program Files\MiKTeX 2.9\tex\generic\ifxetex\ifxetex.sty"
 Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 )
 \Gm@cnth=\count87
@@ -278,28 +280,28 @@ Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 \Gm@layoutvoffset=\dimen110
 \Gm@dimlist=\toks17
 
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\geometry\geometry.cfg"))
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\graphicx.sty"
+("C:\Program Files\MiKTeX 2.9\tex\latex\geometry\geometry.cfg"))
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphicx.sty"
 Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
 
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\graphics.sty"
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphics.sty"
 Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
 
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\trig.sty"
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\trig.sty"
 Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
 )
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\00miktex\graphics.cfg"
+("C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\graphics.cfg"
 File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
 )
 Package graphics Info: Driver file: pdftex.def on input line 91.
 
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\pdftex-def\pdftex.def"
+("C:\Program Files\MiKTeX 2.9\tex\latex\pdftex-def\pdftex.def"
 File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
 
-("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\infwarerr.sty"
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\infwarerr.sty"
 Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
 )
-("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\ltxcmds.sty"
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ltxcmds.sty"
 Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
 )
 \Gread@gobject=\count90
@@ -307,7 +309,7 @@ Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
 \Gin@req@height=\dimen111
 \Gin@req@width=\dimen112
 )
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\booktabs\booktabs.sty"
+(C:\Users\User\AppData\Roaming\MiKTeX\2.9\tex\latex\booktabs\booktabs.sty
 Package: booktabs 2005/04/14 v1.61803 publication quality tables
 \heavyrulewidth=\dimen113
 \lightrulewidth=\dimen114
@@ -327,7 +329,7 @@ Package: booktabs 2005/04/14 v1.61803 publication quality tables
 \@lastruleclass=\count94
 \@thisrulewidth=\dimen125
 )
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\tools\array.sty"
+("C:\Program Files\MiKTeX 2.9\tex\latex\tools\array.sty"
 Package: array 2008/09/09 v2.4c Tabular extension package (FMi)
 \col@sep=\dimen126
 \extrarowheight=\dimen127
@@ -335,7 +337,7 @@ Package: array 2008/09/09 v2.4c Tabular extension package (FMi)
 \extratabsurround=\skip43
 \backup@length=\skip44
 )
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\paralist\paralist.sty"
+(C:\Users\User\AppData\Roaming\MiKTeX\2.9\tex\latex\paralist\paralist.sty
 Package: paralist 2013/06/09 v2.4 Extended list environments
 \pltopsep=\skip45
 \plpartopsep=\skip46
@@ -343,19 +345,19 @@ Package: paralist 2013/06/09 v2.4 Extended list environments
 \plparsep=\skip48
 \pl@lab=\toks19
 )
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\tools\verbatim.sty"
+("C:\Program Files\MiKTeX 2.9\tex\latex\tools\verbatim.sty"
 Package: verbatim 2003/08/22 v1.5q LaTeX2e package for verbatim enhancements
 \every@verbatim=\toks20
 \verbatim@line=\toks21
 \verbatim@in@stream=\read1
 )
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\subfig\subfig.sty"
+(C:\Users\User\AppData\Roaming\MiKTeX\2.9\tex\latex\subfig\subfig.sty
 Package: subfig 2005/06/28 ver: 1.3 subfig package
 
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\caption\caption.sty"
+(C:\Users\User\AppData\Roaming\MiKTeX\2.9\tex\latex\caption\caption.sty
 Package: caption 2013/05/02 v3.3-89 Customizing captions (AR)
 
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\caption\caption3.sty"
+(C:\Users\User\AppData\Roaming\MiKTeX\2.9\tex\latex\caption\caption3.sty
 Package: caption3 2013/05/02 v1.6-88 caption3 kernel (AR)
 Package caption3 Info: TeX engine: e-TeX on input line 57.
 \captionmargin=\dimen128
@@ -382,7 +384,7 @@ Package caption3 Info: TeX engine: e-TeX on input line 57.
 \sf@top=\skip52
 \sf@bottom=\skip53
 )
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\fancyhdr\fancyhdr.sty"
+(C:\Users\User\AppData\Roaming\MiKTeX\2.9\tex\latex\fancyhdr\fancyhdr.sty
 \fancy@headwidth=\skip54
 \f@ncyO@elh=\skip55
 \f@ncyO@erh=\skip56
@@ -393,18 +395,18 @@ Package caption3 Info: TeX engine: e-TeX on input line 57.
 \f@ncyO@olf=\skip61
 \f@ncyO@orf=\skip62
 )
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\sectsty\sectsty.sty"
+(C:\Users\User\AppData\Roaming\MiKTeX\2.9\tex\latex\sectsty\sectsty.sty
 Package: sectsty 2002/02/25 v2.0.2 Commands to change all sectional heading sty
 les
 )
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\tocbibind\tocbibind.sty"
+(C:\Users\User\AppData\Roaming\MiKTeX\2.9\tex\latex\tocbibind\tocbibind.sty
 Package: tocbibind 2010/10/13 v1.5k extra ToC listings
 Package tocbibind Info: The document has section divisions on input line 50.
 
 
 Package tocbibind Note: Using section or other style headings.
 
-) ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\tocloft\tocloft.sty"
+) (C:\Users\User\AppData\Roaming\MiKTeX\2.9\tex\latex\tocloft\tocloft.sty
 Package: tocloft 2013/05/02 v2.3f parameterised ToC, etc., typesetting
 Package tocloft Info: The document has section divisions on input line 44.
 \cftparskip=\skip63
@@ -445,19 +447,19 @@ Package tocloft Info: The document has section divisions on input line 44.
 \cftsubtabindent=\skip98
 \cftsubtabnumwidth=\skip99
 )
-("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\babel\babel.sty"
+("C:\Program Files\MiKTeX 2.9\tex\generic\babel\babel.sty"
 Package: babel 2008/07/08 v3.8m The Babel package
 
 *************************************
 * Local config file bblopts.cfg used
 *
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\00miktex\bblopts.cfg"
+("C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\bblopts.cfg"
 File: bblopts.cfg 2006/07/31 v1.0 MiKTeX 'babel' configuration
 )
-("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\babel\spanish.ldf"
+("C:\Program Files\MiKTeX 2.9\tex\generic\babel\spanish.ldf"
 Language: spanish.ldf 2009/01/02 v5.0h Spanish support from the babel system
 
-("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\babel\babel.def"
+("C:\Program Files\MiKTeX 2.9\tex\generic\babel\babel.def"
 File: babel.def 2008/07/08 v3.8m Babel common definitions
 \babel@savecnt=\count103
 \U@D=\dimen136
@@ -470,7 +472,7 @@ Package babel Info: Making . an active character on input line 585.
 Package babel Info: Making < an active character on input line 630.
 Package babel Info: Making > an active character on input line 630.
 ))
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\listings\listings.sty"
+(C:\Users\User\AppData\Roaming\MiKTeX\2.9\tex\latex\listings\listings.sty
 \lst@mode=\count106
 \lst@gtempboxa=\box26
 \lst@token=\toks23
@@ -484,18 +486,19 @@ Package babel Info: Making > an active character on input line 630.
 \lst@lineno=\count111
 \lst@maxwidth=\dimen140
 
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\listings\lstmisc.sty"
+(C:\Users\User\AppData\Roaming\MiKTeX\2.9\tex\latex\listings\lstmisc.sty
 File: lstmisc.sty 2013/08/26 1.5b (Carsten Heinz)
 \c@lstnumber=\count112
 \lst@skipnumbers=\count113
 \lst@framebox=\box27
 )
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\listings\listings.cfg"
+(C:\Users\User\AppData\Roaming\MiKTeX\2.9\tex\latex\listings\listings.cfg
 File: listings.cfg 2013/08/26 1.5b listings configuration
 ))
 Package: listings 2013/08/26 1.5b (Carsten Heinz)
 
-("C:\Users\Owner\Desktop\Documentación Buscaminas\Documentación.aux")
+("C:\Users\User\Documents\GitHub\Proyecto_Android_Busacaminas\Documentación Bu
+scaminas\Documentación.aux")
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 62.
 LaTeX Font Info:    ... okay on input line 62.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 62.
@@ -543,7 +546,7 @@ LaTeX Font Info:    ... okay on input line 62.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-("C:\Program Files (x86)\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
+("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count114
 \scratchdimen=\dimen141
@@ -584,8 +587,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 66--67
 
 [1
 
-{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map} <C:/Users/Owner/Desktop/Do
-cumentación Buscaminas/imagenes/Espol.png>]
+{C:/Users/User/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map} <C:/Users/Use
+r/Documents/GitHub/Proyecto_Android_Busacaminas/Documentación Buscaminas/image
+nes/Espol.png>]
 
 LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <30> not available
 (Font)              size <24.88> substituted on input line 81.
@@ -600,267 +604,320 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <8> on input line 81.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 81.
-[2] ("C:\Users\Owner\Desktop\Documentación Buscaminas\Documentación.toc"
+[2]
+
+LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <16> not available
+(Font)              size <17.28> substituted on input line 87.
+
+
+LaTeX Font Warning: Font shape `OT1/cmr/bx/n' in size <16> not available
+(Font)              size <17.28> substituted on input line 87.
+
+<./imagenes/logo.png, id=15, 46.2528pt x 46.2528pt>
+File: ./imagenes/logo.png Graphic file (type png)
+ <use ./imagenes/logo.png>
+Package pdftex.def Info: ./imagenes/logo.png used on input line 90.
+(pdftex.def)             Requested size: 85.35826pt x 85.36307pt.
+
+[3 <C:/Users/User/Documents/GitHub/Proyecto_Android_Busacaminas/Documentación 
+Buscaminas/imagenes/logo.png>]
+("C:\Users\User\Documents\GitHub\Proyecto_Android_Busacaminas\Documentación Bu
+scaminas\Documentación.toc"
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <10.95> on input line 3.
 )
 \tf@toc=\write3
-
-[3]
-
-LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <16> not available
-(Font)              size <17.28> substituted on input line 90.
-
-
-LaTeX Font Warning: Font shape `OT1/cmr/bx/n' in size <16> not available
-(Font)              size <17.28> substituted on input line 90.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 99--100
+ [4]
+Underfull \hbox (badness 10000) in paragraph at lines 103--104
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 100--101
+Underfull \hbox (badness 10000) in paragraph at lines 103--104
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 101--102
+Underfull \hbox (badness 10000) in paragraph at lines 108--109
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 102--103
+Underfull \hbox (badness 10000) in paragraph at lines 108--109
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 103--105
+Underfull \hbox (badness 10000) in paragraph at lines 111--112
 
  []
 
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 105.
+[5] <./imagenes/uml.png, id=27, 651.18282pt x 350.05782pt>
+File: ./imagenes/uml.png Graphic file (type png)
 
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\omscmr.fd"
+<use ./imagenes/uml.png>
+Package pdftex.def Info: ./imagenes/uml.png used on input line 122.
+(pdftex.def)             Requested size: 512.1496pt x 275.3408pt.
+
+Overfull \hbox (93.89592pt too wide) in paragraph at lines 122--123
+ [][] 
+ []
+
+[6 <C:/Users/User/Documents/GitHub/Proyecto_Android_Busacaminas/Documentación 
+Buscaminas/imagenes/uml.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 143--144
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 144--145
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 145--146
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 146--147
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 147--149
+
+ []
+
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 149.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\omscmr.fd"
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 105.
- [4]
-<./imagenes/Menu.png, id=23, 225.84375pt x 401.24907pt>
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 149.
+ [7]
+<./imagenes/Menu.png, id=37, 225.84375pt x 401.24907pt>
 File: ./imagenes/Menu.png Graphic file (type png)
 
 <use ./imagenes/Menu.png>
-Package pdftex.def Info: ./imagenes/Menu.png used on input line 116.
+Package pdftex.def Info: ./imagenes/Menu.png used on input line 160.
 (pdftex.def)             Requested size: 209.12683pt x 371.57202pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 115--117
+Underfull \hbox (badness 10000) in paragraph at lines 159--161
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 115--117
+Underfull \hbox (badness 10000) in paragraph at lines 159--161
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 115--117
+Underfull \hbox (badness 10000) in paragraph at lines 159--161
 
  []
 
 
-Overfull \hbox (27.37506pt too wide) in paragraph at lines 115--117
+Overfull \hbox (27.37506pt too wide) in paragraph at lines 159--161
 [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 115--117
+Underfull \hbox (badness 10000) in paragraph at lines 159--161
 
  []
 
-[5 <C:/Users/Owner/Desktop/Documentación Buscaminas/imagenes/Menu.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 118--121
+[8 <C:/Users/User/Documents/GitHub/Proyecto_Android_Busacaminas/Documentación 
+Buscaminas/imagenes/Menu.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 162--165
 
  []
 
-<./imagenes/Nivelfacil.png, id=29, 225.84375pt x 401.24907pt>
+<./imagenes/Nivelfacil.png, id=43, 225.84375pt x 401.24907pt>
 File: ./imagenes/Nivelfacil.png Graphic file (type png)
 
 <use ./imagenes/Nivelfacil.png>
-Package pdftex.def Info: ./imagenes/Nivelfacil.png used on input line 122.
+Package pdftex.def Info: ./imagenes/Nivelfacil.png used on input line 166.
 (pdftex.def)             Requested size: 209.12683pt x 371.57202pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 121--123
+Underfull \hbox (badness 10000) in paragraph at lines 165--167
 
  []
 
 
-Overfull \hbox (51.46509pt too wide) in paragraph at lines 121--123
+Overfull \hbox (51.46509pt too wide) in paragraph at lines 165--167
 [] 
  []
 
-[6 <C:/Users/Owner/Desktop/Documentación Buscaminas/imagenes/Nivelfacil.png>]
-<./imagenes/Nivelintermedio.png, id=34, 225.84375pt x 401.24907pt>
+[9 <C:/Users/User/Documents/GitHub/Proyecto_Android_Busacaminas/Documentación 
+Buscaminas/imagenes/Nivelfacil.png>]
+<./imagenes/Nivelintermedio.png, id=48, 225.84375pt x 401.24907pt>
 File: ./imagenes/Nivelintermedio.png Graphic file (type png)
 
 <use ./imagenes/Nivelintermedio.png>
-Package pdftex.def Info: ./imagenes/Nivelintermedio.png used on input line 125.
+Package pdftex.def Info: ./imagenes/Nivelintermedio.png used on input line 169.
 
 (pdftex.def)             Requested size: 209.12683pt x 371.57202pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 124--126
+Underfull \hbox (badness 10000) in paragraph at lines 168--170
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 124--126
+Underfull \hbox (badness 10000) in paragraph at lines 168--170
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 124--126
+Underfull \hbox (badness 10000) in paragraph at lines 168--170
 
  []
 
 
-Overfull \hbox (51.46509pt too wide) in paragraph at lines 124--126
+Overfull \hbox (51.46509pt too wide) in paragraph at lines 168--170
 [] 
  []
 
-[7 <C:/Users/Owner/Desktop/Documentación Buscaminas/imagenes/Nivelintermedio.p
-ng>] <./imagenes/Niveldificil.png, id=40, 225.84375pt x 401.24907pt>
+[10 <C:/Users/User/Documents/GitHub/Proyecto_Android_Busacaminas/Documentación
+ Buscaminas/imagenes/Nivelintermedio.png>]
+<./imagenes/Niveldificil.png, id=53, 225.84375pt x 401.24907pt>
 File: ./imagenes/Niveldificil.png Graphic file (type png)
 
 <use ./imagenes/Niveldificil.png>
-Package pdftex.def Info: ./imagenes/Niveldificil.png used on input line 128.
+Package pdftex.def Info: ./imagenes/Niveldificil.png used on input line 172.
 (pdftex.def)             Requested size: 209.12683pt x 371.57202pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 127--129
+Underfull \hbox (badness 10000) in paragraph at lines 171--173
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 127--129
+Underfull \hbox (badness 10000) in paragraph at lines 171--173
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 127--129
+Underfull \hbox (badness 10000) in paragraph at lines 171--173
 
  []
 
 
-Overfull \hbox (51.46509pt too wide) in paragraph at lines 127--129
+Overfull \hbox (51.46509pt too wide) in paragraph at lines 171--173
 [] 
  []
 
-[8 <C:/Users/Owner/Desktop/Documentación Buscaminas/imagenes/Niveldificil.png>
-] <./imagenes/ganar.png, id=45, 225.84375pt x 401.24907pt>
+[11 <C:/Users/User/Documents/GitHub/Proyecto_Android_Busacaminas/Documentación
+ Buscaminas/imagenes/Niveldificil.png>]
+<./imagenes/ganar.png, id=58, 225.84375pt x 401.24907pt>
 File: ./imagenes/ganar.png Graphic file (type png)
 
 <use ./imagenes/ganar.png>
-Package pdftex.def Info: ./imagenes/ganar.png used on input line 133.
+Package pdftex.def Info: ./imagenes/ganar.png used on input line 177.
 (pdftex.def)             Requested size: 209.12683pt x 371.57202pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 131--134
+Underfull \hbox (badness 10000) in paragraph at lines 175--178
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 131--134
+Underfull \hbox (badness 10000) in paragraph at lines 175--178
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 131--134
+Underfull \hbox (badness 10000) in paragraph at lines 175--178
 
  []
 
 
-Overfull \hbox (27.37506pt too wide) in paragraph at lines 131--134
+Overfull \hbox (27.37506pt too wide) in paragraph at lines 175--178
 [] 
  []
 
-[9 <C:/Users/Owner/Desktop/Documentación Buscaminas/imagenes/ganar.png>]
-<./imagenes/Records.png, id=50, 526.96875pt x 308.65312pt>
+[12 <C:/Users/User/Documents/GitHub/Proyecto_Android_Busacaminas/Documentación
+ Buscaminas/imagenes/ganar.png>]
+<./imagenes/Records.png, id=63, 526.96875pt x 308.65312pt>
 File: ./imagenes/Records.png Graphic file (type png)
 
 <use ./imagenes/Records.png>
-Package pdftex.def Info: ./imagenes/Records.png used on input line 136.
+Package pdftex.def Info: ./imagenes/Records.png used on input line 180.
 (pdftex.def)             Requested size: 334.60422pt x 195.99254pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 135--137
+Underfull \hbox (badness 10000) in paragraph at lines 179--181
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 135--137
+Underfull \hbox (badness 10000) in paragraph at lines 179--181
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 135--137
+Underfull \hbox (badness 10000) in paragraph at lines 179--181
 
  []
 
 
-Overfull \hbox (27.37506pt too wide) in paragraph at lines 135--137
+Overfull \hbox (27.37506pt too wide) in paragraph at lines 179--181
 [] 
  []
 
-[10 <C:/Users/Owner/Desktop/Documentación Buscaminas/imagenes/Records.png>]
-<./imagenes/Instrucciones.png, id=55, 225.84375pt x 401.24907pt>
+[13 <C:/Users/User/Documents/GitHub/Proyecto_Android_Busacaminas/Documentación
+ Buscaminas/imagenes/Records.png>]
+<./imagenes/Instrucciones.png, id=69, 225.84375pt x 401.24907pt>
 File: ./imagenes/Instrucciones.png Graphic file (type png)
 
 <use ./imagenes/Instrucciones.png>
-Package pdftex.def Info: ./imagenes/Instrucciones.png used on input line 139.
+Package pdftex.def Info: ./imagenes/Instrucciones.png used on input line 183.
 (pdftex.def)             Requested size: 209.12683pt x 371.57202pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 138--140
+Underfull \hbox (badness 10000) in paragraph at lines 182--184
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 138--140
+Underfull \hbox (badness 10000) in paragraph at lines 182--184
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 138--140
+Underfull \hbox (badness 10000) in paragraph at lines 182--184
 
  []
 
 
-Overfull \hbox (27.37506pt too wide) in paragraph at lines 138--140
+Overfull \hbox (27.37506pt too wide) in paragraph at lines 182--184
 [] 
  []
 
-[11 <C:/Users/Owner/Desktop/Documentación Buscaminas/imagenes/Instrucciones.pn
-g>] ("C:\Users\Owner\Desktop\Documentación Buscaminas\Documentación.aux")
+[14 <C:/Users/User/Documents/GitHub/Proyecto_Android_Busacaminas/Documentación
+ Buscaminas/imagenes/Instrucciones.png>] [15]
+("C:\Users\User\Documents\GitHub\Proyecto_Android_Busacaminas\Documentación Bu
+scaminas\Documentación.aux")
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 5.12pt have occurred.
 
  ) 
 Here is how much of TeX's memory you used:
- 5838 strings out of 493921
- 85091 string characters out of 3144875
- 151006 words of memory out of 3000000
- 9063 multiletter control sequences out of 15000+200000
+ 5854 strings out of 494045
+ 85585 string characters out of 3148390
+ 151880 words of memory out of 3000000
+ 9076 multiletter control sequences out of 15000+200000
  10018 words of font info for 35 fonts, out of 3000000 for 9000
- 841 hyphenation exceptions out of 8191
- 44i,10n,43p,492b,330s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb>
-<C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C
-:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/P
-rogram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Prog
-ram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Program
- Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmss12.pfb><C:/Program F
-iles (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on Documentación.pdf (11 pages, 1465325 bytes).
+ 715 hyphenation exceptions out of 8191
+ 44i,10n,43p,574b,326s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Pr
+ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Fi
+les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTe
+X 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fon
+ts/type1/public/amsfonts/cm/cmr17.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
+public/amsfonts/cm/cmss12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/a
+msfonts/cm/cmsy10.pfb>
+Output written on Documentación.pdf (15 pages, 1511074 bytes).
 PDF statistics:
- 83 PDF objects out of 1000 (max. 8388607)
+ 100 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 41 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 51 words of extra memory for PDF output out of 10000 (max. 10000000)
 
