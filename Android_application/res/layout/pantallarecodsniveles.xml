@@ -20,7 +20,7 @@
             android:layout_alignParentTop="true"
             android:layout_marginTop="65dp"
             android:gravity="center"
-            android:text="Escoja el nivel de dificultad"
+            android:text="Escoja el nivel de records"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="#0000ff"
             android:textSize="30sp"

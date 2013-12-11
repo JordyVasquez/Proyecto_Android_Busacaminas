@@ -46,7 +46,7 @@ public class MainActivity extends Activity implements OnClickListener {
 			startActivity(llama_pantalla_datos);
 			break;
 		case R.id.btRecord:
-			Intent record=new Intent("com.example.android_application.Record");
+			Intent record=new Intent("com.example.android_application.Pantallanivelesrecord");
 			startActivity(record);
 			break;
 

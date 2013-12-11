@@ -75,7 +75,7 @@ public class Pantalla_facil extends Activity implements OnTouchListener,
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.tablerofacil);
 		setVolumeControlStream(AudioManager.STREAM_MUSIC);
-		String variable_nivel = getIntent().getStringExtra("Nivel_juego");
+		variable_nivel = getIntent().getStringExtra("Nivel_juego");
 		reiniciar = (View) findViewById(R.id.button1);
 
 		btmas = (View) findViewById(R.id.btmas);
@@ -177,11 +177,7 @@ public class Pantalla_facil extends Activity implements OnTouchListener,
 
 		if (event.getAction() == MotionEvent.ACTION_DOWN) {
 			if (activo) {
-				if (estado == "inactivo") {
-					crono.setBase(SystemClock.elapsedRealtime());
-					crono.start();
-					estado = "activo";
-				}
+				
 				int X = (int) event.getX();
 				int Y = (int) event.getY();
 				for (int f = 0; f < Filas; f++) {
@@ -205,6 +201,11 @@ public class Pantalla_facil extends Activity implements OnTouchListener,
 										primerintento = 1;
 										reiniciar
 												.setBackgroundResource(R.drawable.carasorpresa);
+										if (estado == "inactivo") {
+											crono.setBase(SystemClock.elapsedRealtime());
+											crono.start();
+											estado = "activo";
+										}
 									}
 									casillas[f][c].destapado = true;
 
@@ -274,13 +275,12 @@ public class Pantalla_facil extends Activity implements OnTouchListener,
 				alert.setView(input); // añades el edit text a la vista del
 										// AlertDialog
 				alert.setPositiveButton("Guardar",
-						new DialogInterface.OnClickListener() { // si le das al
+						new DialogInterface.OnClickListener() { // si 
 							// si
 							public void onClick(DialogInterface dialog,
 									int whichButton) {
-
-								base.guardarPuntuacion(chronoText, input
-										.getText().toString());
+								
+								base.guardarPuntuacion(chronoText, input.getText().toString(),variable_nivel);
 								// u
 							}
 
@@ -375,7 +375,7 @@ public class Pantalla_facil extends Activity implements OnTouchListener,
 
 	class Tablero extends View {
 		int Divisor, Divisor2;
-
+//
 		public Tablero(Context context, String Nivel, LinkedList<Integer> datos) {
 			super(context);
 			if (Nivel.equals("Facil")) {
@@ -394,17 +394,13 @@ public class Pantalla_facil extends Activity implements OnTouchListener,
 				bombas = 40;
 			}
 			if (Nivel.equals("Dificil")) {
-				Filas = 32;
-				columnas = 16;
-				Divisor = 32;
-				Divisor2 = 16;
-				bombas = 99;
+				Filas = 24;
+				columnas = 20;
+				Divisor = 25;
+				Divisor2 = 21;
+				bombas = 80;
 			}
-			if (Nivel.equals("Personalizado")) {
-				Filas = 8;
-				columnas = 8;
-				Divisor = 10;
-			}
+			
 			casillas = new Casilla[Filas][columnas];
 			for (int f = 0; f < Filas; f++) {
 				for (int c = 0; c < columnas; c++) {
@@ -510,8 +506,7 @@ public class Pantalla_facil extends Activity implements OnTouchListener,
 							&& casillas[f][c].contenido <= 8
 							&& casillas[f][c].destapado) {
 						colornumeros(paint2, pintarnume);
-						canvas.drawText(
-								String.valueOf(casillas[f][c].contenido), c
+						canvas.drawText(String.valueOf(casillas[f][c].contenido), c
 										* anchocua + (anchocua / 3) + medio,
 								filaact + medio2 + (anchocua / 3)
 										+ (anchocua / 2), paint2);
@@ -577,11 +572,11 @@ public class Pantalla_facil extends Activity implements OnTouchListener,
 		} while (cantidad != 0);
 		return lista;
 	}
+	//h
 
 	public boolean gano(int Filas, int columnas, int bombas) {
 		int cant = 0;
 
-		valor = Filas * columnas - bombas;
 		for (int f = 0; f < Filas; f++) {
 			for (int c = 0; c < columnas; c++) {
 				if (casillas[f][c].destapado)

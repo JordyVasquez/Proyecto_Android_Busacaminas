@@ -3,6 +3,7 @@ package com.example.android_application;
 import java.util.LinkedList;
 import java.util.Vector;
 
+import android.R.string;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -12,7 +13,7 @@ import android.util.Log;
 
 public class Base_dedatosdel_jugador extends SQLiteOpenHelper{
 
-	String sqlCreate = "CREATE TABLE Usuarios (puntaje Text, nombre TEXT)";
+	String sqlCreate = "CREATE TABLE Usuarios (puntaje TEXT, nombre TEXT, nivel TEXT)";
 	public Base_dedatosdel_jugador(Context context, String name,
 			CursorFactory factory, int version) {
 		super(context, name, factory, version);
@@ -24,9 +25,9 @@ public class Base_dedatosdel_jugador extends SQLiteOpenHelper{
         db.execSQL(sqlCreate);
     }
 	//Métodos de AlmacenPuntuaciones
-    public void guardarPuntuacion(String puntos, String nombre) {
+    public void guardarPuntuacion(String puntos,String nombre,String nivel) {
           SQLiteDatabase db = getWritableDatabase();
-          db.execSQL("INSERT INTO Usuarios VALUES ('"+puntos+"', '"+nombre+"')");
+          db.execSQL("INSERT INTO Usuarios VALUES ('"+puntos+"', '"+nombre+"','"+nivel+"')");
           db.close();
     }
     public void borrar() {
@@ -43,13 +44,18 @@ public class Base_dedatosdel_jugador extends SQLiteOpenHelper{
 		  onCreate(db); 
 	}
 	
-	 public LinkedList<String> listaPuntuaciones() {
-		 LinkedList<String> result = new LinkedList<String>();
+	 public LinkedList<LinkedList<String>> listaPuntuaciones(String Nivel) {
+		
+		 LinkedList<LinkedList<String>> result = new LinkedList<LinkedList<String>>();
          SQLiteDatabase db = getReadableDatabase();
          Cursor cursor = db.rawQuery("SELECT puntaje, nombre FROM " +
-          "Usuarios ORDER BY puntaje",null);
+          "Usuarios Where nivel='"+Nivel+"'ORDER BY puntaje",null);
          while (cursor.moveToNext()){
-                       result.add(cursor.getString(0)+" " +cursor.getString(1));
+        	           LinkedList<String> jugador = new LinkedList<String>();
+                       jugador.add(cursor.getString(1));
+                       jugador.add(cursor.getString(0));
+                       result.add(jugador);
+                       
           }
          cursor.close();
          db.close();
